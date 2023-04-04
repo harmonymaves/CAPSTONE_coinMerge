@@ -17,7 +17,7 @@ Currently, there are multiple games using merges as the major gameplay.  However
 
 Some games available as merge games include Travel Town, Merge Mansion, and Merge Dragons.  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
 
-![Alt: Image of Travel Town](coinMergeProject/public/images/TravelTown.jpg)
+![Alt: Image of Travel Town](coinMergeProject/public/images/TravelTown.jpg =500x250)
 
 Image of Travel Town, a merging game currently available on Android
 
