@@ -50,4 +50,4 @@ Additional Goals, should time permit, include:
 Potential Pitfalls
 ------------------
 One potential pitfall for game play is the board becoming cluttered with coins that aren’t usable for current goals and making the game less playable/fun.  We have several ideas to approach this problem, but should none of our elegant solutions work, we will create a board reset button.
-Another potential issue if because we are web-based, we will have to write it in a manner that it can be played in multiple browsers, including older browsers
+Another potential issue if because we are web-based, we will have to write it in a manner that it can be played in multiple browsers, including older browsers.
