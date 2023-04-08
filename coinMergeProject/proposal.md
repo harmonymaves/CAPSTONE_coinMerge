@@ -1,15 +1,17 @@
 Coin Merge Game
 ===============
-Davin Haley, Valkyrie Maves, Dexter Peterson, McKenna Aldach
+Davin Haley, Valkyrie Maves, Dexter Peterson, and McKenna Aldach
 
 The Need
 --------
 Everyone likes to play games, and children need instruction and practice in the coins of their country’s currency.  While the low-technology method of having your kids count your coin jar will always be an option, children need a way to practice with coins they cannot swallow.
-Turning that counting practice into a game with small goals, kids will be able to practice and learn through play. Research has shown that learning through play is the best learning method for children under the age of 6, our main target audience.
+
+Turning counting practice into a game with small goals, kids will be able to practice and learn through play. Research has shown that learning through play is the best learning method for children under the age of 6, our main target audience.
 
 Our Solution
 ------------
 Coin Merge is a game written in Java for young children to practice coin counting skills by merging matching coins together until they create the next monetary coin, which will then replace the previous coins.  For example, a merge that would be five pennies becomes one nickel, or five dimes merged together become 2 quarters.
+
 The game will use the 4 predominant four coins of US currency, with a dollar being the max amount merged to.  The theme of the game is a candy stand, where characters pay a certain amount and need the player to give them change.  A game board holds coins in individual squares, and when the correct amount of change is available, those parts will light up.  For example, if a character needs ten cents in change, all dimes will highlight and the character will have an option to “give change.” To the side of the game board is a change jar that can be tapped to add additional coins (lower denominations) to the game board for merging. When the child reaches the highest denomination (being the dollar) a customer may request a dollar or more in change. The child can put the dollar in the change jar to clear up the board for space if needed.
 
 The Competition
