@@ -1,7 +1,6 @@
 Coin Merge Game
 ===============
 Davin Haley, Valkyrie Maves, Dexter Peterson, McKenna Aldach
-dpeterson201@student.cvtc.edu, maldach1@student.cvtc.edu, dhaley4@student.cvtc.edu
 
 The Need
 --------
