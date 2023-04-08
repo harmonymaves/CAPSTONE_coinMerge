@@ -5,11 +5,13 @@ dpeterson201@student.cvtc.edu, maldach1@student.cvtc.edu, dhaley4@student.cvtc.e
 
 The Need
 --------
-Everyone likes to play games, and children need instruction and practice in the coins of their country’s currency.  While the low-technology method of having your kids count your coin jar will always be an option, a way to allow children to practice with coins they cannot swallow.  Turning that counting practice into a game with small goals, kids will be able to practice and learn through play, which research has shown is the best learning method for children under the age of 6, our main target audience.
+Everyone likes to play games, and children need instruction and practice in the coins of their country’s currency.  While the low-technology method of having your kids count your coin jar will always be an option, children need a way to practice with coins they cannot swallow.
+Turning that counting practice into a game with small goals, kids will be able to practice and learn through play. Research has shown that learning through play is the best learning method for children under the age of 6, our main target audience.
 
 Our Solution
 ------------
-Coin Merge is a game written in Java for young children to practice coin counting skills by merging matching coins together until they create the next monetary coin, which will then replace the previous coins.  For example, a merge that would be five pennies becomes one nickel, or five dimes merged together become 2 quarters.  The game will use the 4 predominant four coins of US currency, with a dollar being the max amount merged to.  The theme of the game is a candy stand, where characters pay a certain amount and need the player to give them change.  A game board holds coins in individual squares, and when the correct amount of change is available, those parts will light up.  For example, if a character needs ten cents in change, all dimes will highlight and the character will have an option to “give change.” To the side of the game board is a change jar that can be tapped to add additional coins (lower denominations) to the game board for merging. **TODO What happens when the coins go over one dollar?**
+Coin Merge is a game written in Java for young children to practice coin counting skills by merging matching coins together until they create the next monetary coin, which will then replace the previous coins.  For example, a merge that would be five pennies becomes one nickel, or five dimes merged together become 2 quarters.
+The game will use the 4 predominant four coins of US currency, with a dollar being the max amount merged to.  The theme of the game is a candy stand, where characters pay a certain amount and need the player to give them change.  A game board holds coins in individual squares, and when the correct amount of change is available, those parts will light up.  For example, if a character needs ten cents in change, all dimes will highlight and the character will have an option to “give change.” To the side of the game board is a change jar that can be tapped to add additional coins (lower denominations) to the game board for merging. When the child reaches the highest denomination (being the dollar) a customer may request a dollar or more in change. The child can put the dollar in the change jar to clear up the board for space if needed.
 
 The Competition
 ---------------
@@ -24,6 +26,7 @@ Image of [Travel Town](https://play.google.com/store/apps/details?id=io.randomco
 Sample UI
 ---------
 We have a couple of different visuals for our sample UI. Our first image demonstrates what the general experience would look like overall while the second image focuses more on the general functionality of the game.
+
 ![Alt: First Sample UI](coinMergeProject/public/images/startingUI.png)
 ![Alt: Second Sample UI](coinMergeProject/public/images/startingUI2.PNG)
 
@@ -39,8 +42,11 @@ Our minimum for success includes:
 </ol>
 
 Additional Goals, should time permit, include:
-
-
+<ol>
+<li>A scoring system or another form of reassurance to encourage children to play more and see their progress</li>
+<li>Score payout for different candy shop backgrounds and piggy bank icons to encourage more playthrough</li>
+<li>Music options to entertain the child while playing</li>
+</ol>
 
 Potential Pitfalls
 ------------------
