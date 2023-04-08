@@ -24,8 +24,8 @@ Image of [Travel Town](https://play.google.com/store/apps/details?id=io.randomco
 Sample UI
 ---------
 We have a couple of different visuals for our sample UI. Our first image demonstrates what the general experience would look like overall while the second image focuses more on the general functionality of the game.
-![Alt: First Sample UI](coinMergeProject/coinMergeProject/public/images/startingUI.png)
-![Alt: Second Sample UI](coinMergeProject/coinMergeProject/public/images/startingUI2.png)
+![Alt: First Sample UI](coinMergeProject/public/images/startingUI.png)
+![Alt: Second Sample UI](coinMergeProject/public/images/startingUI2.png)
 
 Scope
 -----
