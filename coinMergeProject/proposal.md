@@ -37,8 +37,8 @@ Coin Merge will be a Java-based game that is run in a browser window.  Any devic
 
 Our minimum for success includes:
 <ol>
-<li>A working game that practices money skills</li>
-<li>A game that runs without errors or crashes predictably</li>
+<li>A working game that practices money skills, particulary counting change</li>
+<li>A never-ending sandbox level that allows infinite play</li>
 <li>Game allows coins to be populated, destroyed, used to meet goals, and merged to create needed amounts</li>
 </ol>
 
