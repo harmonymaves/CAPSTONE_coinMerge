@@ -1,0 +1,194 @@
+Pseudo code for coin_Merge project:
+
+	// This logic should be able to be accomplished in many different ways. 
+	// I'm going to implement the first thing I can think of  for each function 
+	// so we have some point to start from. But I didn't give any of these 
+	// the is this the best way to do it examination. 
+	// Feel free to change this logic or abandon it for your own!
+
+
+	// TO-DO 
+	// Determine global level variables
+	// Write function for cashing out customers
+
+
+
+index page:
+
+<HTML header info>
+
+<Logic file imports>
+<CSS file imports>
+
+
+<HTML body structure>
+
+	<canvas></canvas> // if we decide to stick with canvas
+
+</HTML body structure>
+
+// function declarations 
+
+function to kick off at page load {
+
+	function load_customers();
+
+	function load_coins();
+
+	function display_startbox ();
+
+	function display_coins(coin_data_object);
+
+}
+
+
+function load_customers() {
+
+	create queue data object
+
+	load customer object/class
+
+	use math.rand to create a number for each customer in the queue data object 3
+
+	assign each customer in the data object their result of the math.random
+
+	// We will want to decide how the customer comes up with their total
+	// meaning, we could either random a number which will be their cost
+	// or that random number could be an int of how many pieces of candy
+	// they have, which would determine their cost. This would allow 
+	// candy to be more customizable thru shop upgrades. 
+
+	display_customers(customer_object);
+	load_coins(customer_object);
+	return data object containing customers 
+
+	
+
+}
+
+
+function load_coins(accepts a customer object) {
+
+	import coin class
+
+	variable for pennies
+	variable for nickles
+	variable for dimes
+	variable for quarters
+	variable for dollar
+
+	create a data object to hold all of our coins
+
+	loop through the customer object and total all of all their requests and store it in a variable total_Total
+
+	divide total_Total by 5 and store it in variable fivesNeeded.
+
+	coinTotal = 0
+
+	if total_Total != coinTotal
+
+		while loop to be active while total_Total > 0
+
+			//use case statements to determine how many high value coins are needed
+
+			case fivesNeeded  >= 75
+				quarters += 2
+				coinTotal +=50
+			case fivesNeeded >= 25
+				dimes +=2
+				coinTotal +==20
+			case fivesNeeded >= 15
+`				nickles +=2	
+				coinTotal +==10
+			case fivesNeeded >=6
+				nickles +=1
+				coinTotal +==1
+			case fivesNeeded <=5
+				exit(?)
+
+	
+		pennies = total_Total - coinTotal
+
+	add the total number of all of our coins storing it in proj_Coins
+
+	if proj_Coins > 25 
+		Restart the process by calling load_customers()
+	else if proj_Coins < 25
+		pennies += 25 - proj_Coins
+
+	populate our data object so that we assign the number of pennies first, nickles second, dimes third, quarters last
+
+	return coin data object
+
+}
+
+
+function display_startbox () {
+
+	// this is just going to handle the initial button click to make the div that contains tutorial information to go away.
+
+	query selector for the div with start and tutorial information
+
+	if div for this has been clicked, set it to invisible and stop listening for events on that div
+
+}
+
+
+
+function display_coins(coin_data_object, 25 slot array) {
+
+	dollars = coin_data_object[4]
+	quarters = coin_data_object[3]
+	dimes = coin_data_object[2]
+	nickles = coin_data_object[1]
+	pennies = coin_data_object[0]
+
+	for each dollar in dollars assign value do randomly to open array slots
+	for each quarter in quearters assign value q randomly to open array slots
+	for each dime in dimes assign value d randomly to open array slots
+	for each nickle in nickles assign value n randomly to open array slots
+	for each penny in pennies assign value p randomly to open array slots	
+
+	fill_Canvas(25slotarray)
+
+}
+
+
+function fill_Canvas () {
+
+	// This assumes that the canvas has already had 25 different canvas slots created already.
+	
+	for each loop that assigns do,q,d,n,p to slots randomly that don't already have an object/id/name assigned to them.
+
+}
+
+function display_Customers(customer_data_object) {
+
+	for each object in the customer data object select a random customer asset and assign it the customer.total
+	from the data object. 
+	then create a new div and attach it to the customers div for each customer created.
+	display them with a delay OR all at once // doesn't matter
+}
+
+
+onclick function mergeCoins() {
+
+
+	Get starting canvas element id and store it in a variable
+
+	get starting canvas element value/coin and store it in a variable
+
+	upon click release/in a callback function (){
+
+		get the final canvas element id and store it in a variable
+
+		check to see if the merge is not diagonal by calculating the difference between the squares
+		// Thinking about this logic, I'm wondering if we should have the information be stored in a hash table and use that to calculate, rather
+		// than us coming up with our own solution. But I would appreciate any help here!
+
+	update score
+	call load_Coins(customer_data_object)
+	}
+
+}
+
