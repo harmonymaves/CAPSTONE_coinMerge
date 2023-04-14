@@ -10,7 +10,7 @@ Turning counting practice into a game with small goals, kids will be able to pra
 
 Our Solution
 ------------
-Coin Merge is a game written in Java for young children to practice coin counting skills by merging matching coins together until they create the next monetary coin, which will then replace the previous coins.  For example, a merge that would be five pennies becomes one nickel, or five dimes merged together become 2 quarters.
+Coin Merge is a game written in JavaScript for young children to practice coin counting skills by merging matching coins together until they create the next monetary coin, which will then replace the previous coins.  For example, a merge that would be five pennies becomes one nickel, or five dimes merged together become 2 quarters.
 
 The game will use the 4 predominant four coins of US currency, with a dollar being the max amount merged to.  The theme of the game is a candy stand, where characters pay a certain amount and need the player to give them change.  A game board holds coins in individual squares, and when the correct amount of change is available, those parts will light up.  For example, if a character needs ten cents in change, all dimes will highlight and the character will have an option to “give change.” To the side of the game board is a change jar that can be tapped to add additional coins (lower denominations) to the game board for merging. When the child reaches the highest denomination (being the dollar) a customer may request a dollar or more in change. The child can put the dollar in the change jar to clear up the board for space if needed.
 
@@ -18,7 +18,7 @@ The Competition
 ---------------
 Currently, there are multiple games using merges as the major gameplay.  However, they are not educationally based and written for adults rather than younger players.  There are also very few or no findable games for children to practice coin counting skills and change making skills currently available.
 
-Some games available as merge games include Travel Town, Merge Mansion, and Merge Dragons.  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
+Some games available as merge games include Travel Town, Merge Mansion(https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en_US&gl=US), and Merge Dragons(https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en_US&gl=US).  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
 
 ![Alt: Image of Travel Town](coinMergeProject/public/images/TravelTown.jpg)
 
@@ -33,7 +33,7 @@ We have a couple of different visuals for our sample UI. Our first image demonst
 
 Scope
 -----
-Coin Merge will be a Java-based game that is run in a browser window.  Any device that can run an internet browser should be able to play Coin Merge.  Coin Merge is an image-based game with click-and-drag play to combine like coins.
+Coin Merge will be a JavaScript-based game that is run in a browser window.  Any device that can run an internet browser should be able to play Coin Merge.  Coin Merge is an image-based game with click-and-drag play to combine like coins.
 
 Our minimum for success includes:
 <ol>
