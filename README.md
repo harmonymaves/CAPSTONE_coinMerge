@@ -4,7 +4,7 @@
 *Coin Merge* is powered mostly by Javascript (JQuery).
 
 ## Installation
-The game requires internet access and cookie acceptance. This game operates off of the web browser and requires adequate browser versions to be able to run the elements involved. The most important element for the browser version is 'canvas'. The 'canvas' element is that will run the game.
+The game requires internet access and cookie acceptance. This game operates off of the web browser and requires adequate browser versions to be able to run the elements involved. The most important element for the browser version is 'canvas'. The 'canvas' element runs the game.
 
 According to [*W3 Schools*](https://www.w3schools.com/html/html5_canvas.asp), the lowest versions that can use the 'canvas' element are:
 - **Chrome** *4.0*
