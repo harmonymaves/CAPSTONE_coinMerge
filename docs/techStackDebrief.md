@@ -6,7 +6,7 @@ communicating what we were all familiar with as far as where we felt comfortable
 the fact that not all of us had experience in Unity, we all agreed that we would have to use something 
 to run in the web browser. From there we all agreed to consider using the DOM vs using the canvas element.
 After that, we all discussed the positives and negatives and what we would do to make sure we are comfortable
-with our decision to use the canvas element. Additionally, we did a good job at communicating our ideas for 
+with our decision to use the DOM. Additionally, we did a good job at communicating our ideas for 
 how we thought the game should look and operate. Not only were we open to hearing other's ideas, but we also
 adapted our ideas after hearing feedback, so we did a good job at taking feedback in a positive way. 
 
