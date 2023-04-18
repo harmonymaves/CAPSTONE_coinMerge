@@ -18,7 +18,7 @@ The Competition
 ---------------
 Currently, there are multiple games using merges as the major gameplay.  However, they are not educationally based and written for adults rather than younger players.  There are also very few or no findable games for children to practice coin counting skills and change making skills currently available.
 
-Some games available as merge games include Travel Town, Merge Mansion(https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en_US&gl=US), and Merge Dragons(https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en_US&gl=US).  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
+Some games available as merge games include [Travel Town](https://play.google.com/store/apps/details?id=io.randomco.travel&hl=en_US&gl=US), [Merge Mansion](https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en_US&gl=US), and [Merge Dragons](https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en_US&gl=US).  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
 
 ![Alt: Image of Travel Town](/public/images/TravelTown.jpg)
 
