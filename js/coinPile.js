@@ -42,7 +42,7 @@ class coinPile {
       case "quarter":
         return this.count * 0.25;
       case "dollar":
-        return this.count
+        return this.count;
       default:
         return 0; // only would happen if the value is not a valid value.
     } // end switch
