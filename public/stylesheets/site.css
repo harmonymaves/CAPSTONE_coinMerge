@@ -1,0 +1,33 @@
+#shopPopUp {
+  visibility: hidden;
+  position: fixed;
+  width: 500px;
+  height: 340px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
+  border-radius: 10%;
+  text-align: center;
+  background-color: tan;
+}
+#xButtonImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+#xButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
