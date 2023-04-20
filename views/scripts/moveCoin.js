@@ -1,3 +1,9 @@
+// Three Events to moving a coin:
+// 1- clicking the coin
+// 2- clicking the cell it goes to
+// 3- data that is changed when coin moves
+
+
 // Game Board Array
 const board = [
     1, 2, 3, 4, 5,
@@ -9,12 +15,13 @@ const board = [
 
 // DOM references
 const cells = document.querySelectorAll("td");
-let pennies = document.querySelectorAll("span");
+let pennies = document.querySelectorAll("p");
 let chosenCoin = {
     coinId: -1,
     indexOfBoardPiece: -1
 }
 
+// Mini-Event One: clicking the coin
 //Event listeners on each coin
 function coinEventListeners() {
     for (let i = 0; i < pennies.length; i++) {
@@ -31,6 +38,8 @@ function removeCoinonclick() {
     for(let i = 0; i < cells.length; i++) {
         cells[i].removeAttribute("onclick");
     }
+    //TODO: This is where to change the appearance of the cursor
+    // to drag coin around screen
 }
 
 function resetSelectedCoinProperties() {
@@ -42,6 +51,7 @@ function resetSelectedCoinProperties() {
 function getSelectedCoin() {
     chosenCoin.coinId = parseInt(event.target.id);
     chosenCoin.indexOfBoardPiece = findCoin(chosenCoin.coinId);
+    console.log("Chosen Coin Id: " + chosenCoin.coinId + "\nBoard Index: " + chosenCoin.indexOfBoardPiece);
 }
 
 let findCoin = function (coinId) {
@@ -49,9 +59,7 @@ let findCoin = function (coinId) {
     return board.indexOf(parsed);
 };
 
-function checkAvailableSpaces() {
-    
-}
+
 
     coinEventListeners();
 }
