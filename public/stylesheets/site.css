@@ -30,6 +30,7 @@
   right: 0;
   width: 40px;
   height: 40px;
+  margin: 5px 5px;
   border-radius: 50%;
 }
 #helpPopUp {
@@ -63,4 +64,5 @@
 }
 #helpBtn {
   position: fixed;
+  margin: 5px 5px;
 }
