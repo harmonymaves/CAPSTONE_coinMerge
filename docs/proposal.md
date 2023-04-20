@@ -53,3 +53,9 @@ Potential Pitfalls
 ------------------
 One potential pitfall for game play is the board becoming cluttered with coins that aren’t usable for current goals and making the game less playable/fun.  We have several ideas to approach this problem, but should none of our elegant solutions work, we will create a board reset button.
 Another potential issue if because we are web-based, we will have to write it in a manner that it can be played in multiple browsers, including older browsers.
+
+Proposed Styles
+---------------
+For our color theme, we wanted to use colors that gave off a feeling of being around coins and a candy shop, therefore we generated the following color scheme.
+
+![Image of our color theme[](https://colorhunt.co/palette/9ede73f7ea00e48900be0000)](/public/images/colorTheme.png)
