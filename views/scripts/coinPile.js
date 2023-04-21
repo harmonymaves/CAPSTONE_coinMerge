@@ -32,7 +32,7 @@ class coinPile {
   } // end constructor
 
   getValue() { // returns the value of the entire pile
-    switch (type) {
+    switch (this.type) {
       case "penny":
         return this.count * 0.01; // multiply the count by the value of 1 coin, to get value of all coins
       case "nickel":
@@ -48,5 +48,14 @@ class coinPile {
     } // end switch
 
   } // end getValue
+
+  toString() {
+    //build output string
+    let stringOutput = `Coin type: ${this.type}
+Coin count: ${this.count}
+Value of Pile: ${this.getValue()}`;
+    
+    return stringOutput;
+  }
 
 } // end coinPile class
