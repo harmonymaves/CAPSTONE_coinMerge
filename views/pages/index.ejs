@@ -8,6 +8,23 @@
   <title>Capstone Coin Merge</title>
 </head>
 <body>
+  <h1 id="titleTag">Coin Merge</h1>
+  <p id="slogan">Learn while having fun!</p>
+  <!--Welcome Setup-->
+  <span id="welcomePopUp" class="popUpClass">
+    <h1>Welcome To Coin Merge!</h1>
+    <ul>
+      <li>Click the jar for change</li>
+      <li>Merge same coins to make a stack</li>
+      <li>Merge coins to make higher value coins</li>
+      <li>Give customers correct change</li>
+      <li>Earn points from helping customers</li>
+      <li>Upgrade your candy shop</li>
+      <li>Learn while having fun!</li>
+    </ul>
+    <p style="margin: 10px 0px;">Ready to run your own candy shop?</p>
+    <button id="startGameBtn">Let's Go!</button>
+  </span>
   <!--Customer Section-->
   <div id="customers">
     <tr>
@@ -64,8 +81,8 @@
   <!--Shop Section-->
   <!--TODO: Add button with event to display 'shopPopUp' as visible with visiblility: visible-->
   <!--Suggestion: Set button image to open shop to 1 of the edges of the screen-->
-  <span id="shopPopUp" style="visibility: hidden;">
-    <button id="xButton" type="button"><img id="xButtonImg" src="/images/xButton.png"></button>
+  <span id="shopPopUp" class="popUpClass" style="visibility: hidden;">
+    <button id="xBtnShop" class="xButtonAll" type="button"><img class="xButtonImg" src="/images/xButton.png"></button>
     <h1>Welcome To The Shop!</h1>
     <div>
       <tr>
@@ -82,17 +99,60 @@
       </tr>
     </div>
   </span>
+  <!--Help Section-->
+  <button id="helpBtn"><img id="helpBtnImg" src="/images/helpButton.png"></button>
+  <span id="helpPopUp" class="popUpClass" style="visibility: hidden;">
+    <button id="xBtnHelp" class="xButtonAll" type="button"><img class="xButtonImg" src="/images/xButton.png"></button>
+    <h1>How To Play</h1>
+    <h4>Game Process</h4>
+    <ul>
+      <li>Click the jar for change</li>
+      <li>Merge same coins to make a stack</li>
+      <li>Merge coins to make higher value coins</li>
+      <li>Give customers correct change</li>
+      <li>Earn points from helping customers</li>
+      <li>Upgrade your candy shop</li>
+      <li>Learn while having fun!</li>
+    </ul>
+    <h4>Coins to Merge</h4>
+    <p><i>Info coming soon</i></p>
+    <h4>Board is Full, Now What?</h4>
+    <p>Drag an unwanted coin back into the coin jar OR click the 'reset game' 
+      button to fully clear the board</p>
+    <h4>I Have Points, Where Do I Spend Them?</h4>
+    <p>Click the shop icon to vist the point shop and make your candy shop cool!</p>
+  </span>
   <script>
     // Events for Shop Section
     //
     // Varibles:
-    const xButton = document.getElementById('xButton');
+    const welcomePopUp = document.getElementById('welcomePopUp');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const helpBtn = document.getElementById('helpBtn');
+    const xBtnHelp = document.getElementById('xBtnHelp');
+    const helpPopUp = document.getElementById('helpPopUp');
+    const xBtnShop = document.getElementById('xBtnShop');
     const shopPopUp = document.getElementById('shopPopUp');
+
+    // Event for closing welcomePopUp
+    startGameBtn.addEventListener("click", function() {
+      welcomePopUp.setAttribute('style', 'visibility: hidden')
+    });
+
+    // Event for opening helpPopUp
+    helpBtn.addEventListener("click", function() {
+      helpPopUp.setAttribute('style', 'visibility: visibile')
+    });
+
+    // Event for closing helpPopUp
+    xBtnHelp.addEventListener("click", function() {
+      helpPopUp.setAttribute('style', 'visibility: hidden')
+    });
 
     // TODO: Add events for button to display 'shopPopUp' as visible
 
     // Event for closing shopPopUp
-    xButton.addEventListener("click", function() {
+    xBtnShop.addEventListener("click", function() {
       shopPopUp.setAttribute('style', 'visibility: hidden')
     });
 
