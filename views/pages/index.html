@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/devCoins.css">
-  <script src="../scripts/moveCoin.js"></script>
+  <link rel="stylesheet" type="text/css" href="/views/styles/devCoins.css">
   <title>Capstone Coin Merge</title>
 </head>
 <body>
+  <!--Customer Section-->
   <div id="customers">
     <tr>
       <td><div id="customer1"></div></td>
@@ -16,49 +16,53 @@
       <td><div id="customer3"></div></td>
     </tr>
 
+  <!--CoinBoard Section-->
   </div>
   <div id="coinBoard">
     <table>
       <tr class="coinRow1">
-        <td><div id="coinSpace1"></div><p class="penny" id="1"></p></td>
-        <td><div id="coinSpace2"></div><p class="penny" id="2"></p></td>
-        <td><div id="coinSpace3"></div><p class="penny" id="3"></p></td>
-        <td><div id="coinSpace4"></div><p class="penny" id="4"></p></td>
-        <td><div id="coinSpace5"></div><p class="penny" id="5"></p></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
       </tr>
       <tr class="coinRow2">
-        <td><div id="coinSpace6"><span class="empty"></span></div></td>
-        <td><div id="coinSpace7"><span class="empty"></span></div></td>
-        <td><div id="coinSpace8"><span class="empty"></span></div></td>
-        <td><div id="coinSpace9"><span class="empty"></span></div></td>
-        <td><div id="coinSpace10"><span class="empty"></span></div></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
       </tr>
       <tr class="coinRow3">
-        <td><div id="coinSpace11"><span class="empty"></span></div></td>
-        <td><div id="coinSpace12"><span class="empty"></span></div></td>
-        <td><div id="coinSpace13"><span class="empty"></span></div></td>
-        <td><div id="coinSpace14"><span class="empty"></span></div></td>
-        <td><div id="coinSpace15"><span class="empty"></span></div></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
       </tr>
       <tr class="coinRow4">
-        <td><div id="coinSpace16"><span class="empty"></span></div></td>
-        <td><div id="coinSpace17"><span class="empty"></span></div></td>
-        <td><div id="coinSpace18"><span class="empty"></span></div></td>
-        <td><div id="coinSpace19"><span class="empty"></span></div></td>
-        <td><div id="coinSpace20"><span class="empty"></span></div></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
       </tr>
       <tr class="coinRow5">
-        <td><div id="coinSpace21"><span class="empty"></span></div></td>
-        <td><div id="coinSpace22"><span class="empty"></span></div></td>
-        <td><div id="coinSpace23"><span class="empty"></span></div></td>
-        <td><div id="coinSpace24"><span class="empty"></span></div></td>
-        <td><div id="coinSpace25"><span class="empty"></span></div></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
+        <td class="tdCoinSpace"><img class="noCoin" src="" alt=""></td>
       </tr>
     </table>
 
     <button id="resetBtn">Reset Game</button>
-    <button id="coinBtn">Add Change</button>
+    <img src="/public/images/coinJar.png" alt="Add Change" id="coinBtn">
 
   </div>
+  <script src="/views/scripts/coinPile.js"></script>
+  <script src="/views/scripts/coinJarAddCoins.js"></script>
+  <!-- <script src="/views/scripts/resetButton.js"></script> -->
 </body>
 </html>
