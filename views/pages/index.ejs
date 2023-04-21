@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/site.css">
   <title>Capstone Coin Merge</title>
 </head>
 <body>
+  <!--Customer Section-->
   <div id="customers">
     <tr>
       <td><div id="customer1"></div></td>
@@ -14,6 +16,7 @@
       <td><div id="customer3"></div></td>
     </tr>
 
+  <!--CoinBoard Section-->
   </div>
   <div id="coinBoard">
     <table>
@@ -58,5 +61,41 @@
     <button id="coinBtn">Add Change</button>
 
   </div>
+  <!--Shop Section-->
+  <!--TODO: Add button with event to display 'shopPopUp' as visible with visiblility: visible-->
+  <!--Suggestion: Set button image to open shop to 1 of the edges of the screen-->
+  <span id="shopPopUp" style="visibility: hidden;">
+    <button id="xButton" type="button"><img id="xButtonImg" src="/images/xButton.png"></button>
+    <h1>Welcome To The Shop!</h1>
+    <div>
+      <tr>
+        <th>Candy Shop Backgrounds</th>
+        <td id="backgrd1"></td>
+        <td id="backgrd2"></td>
+        <td id="backgrd3"></td>
+      </tr>
+      <tr>
+        <th>Coin Jar Designs</th>
+        <td id="coinJar1"></td>
+        <td id="coinJar2"></td>
+        <td id="coinJar3"></td>
+      </tr>
+    </div>
+  </span>
+  <script>
+    // Events for Shop Section
+    //
+    // Varibles:
+    const xButton = document.getElementById('xButton');
+    const shopPopUp = document.getElementById('shopPopUp');
+
+    // TODO: Add events for button to display 'shopPopUp' as visible
+
+    // Event for closing shopPopUp
+    xButton.addEventListener("click", function() {
+      shopPopUp.setAttribute('style', 'visibility: hidden')
+    });
+
+  </script>
 </body>
 </html>
