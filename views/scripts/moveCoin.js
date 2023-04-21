@@ -1,7 +1,8 @@
-// Three Events to moving a coin:
-// 1- clicking the coin
-// 2- clicking the cell it goes to
-// 3- data that is changed when coin moves
+//Events to moving a coin:
+// Add Event Listener to all coins
+// Select and hold coin object by clicking
+// click desired space, check space for "empty" class
+// coin object deselected and placed in previously empty space
 
 
 // Game Board Array
@@ -21,13 +22,13 @@ let chosenCoin = {
     indexOfBoardPiece: -1
 }
 
-// Mini-Event One: clicking the coin
 //Event listeners on each coin
 function coinEventListeners() {
     for (let i = 0; i < pennies.length; i++) {
         pennies[i].addEventListener("click", selectCoin)
     }
 
+//Select the coin
 function selectCoin() {
     removeCoinonclick();
     resetSelectedCoinProperties();
@@ -59,7 +60,13 @@ let findCoin = function (coinId) {
     return board.indexOf(parsed);
 };
 
+function giveCellsClick() {
+    for (i = 0; i > cells.length; i++)
+        if (cells.className == "empty") {
+        cells[i].setAttribute("onclick", "makemove()");
+    }
 
+}
 
     coinEventListeners();
 }
