@@ -1,72 +1,65 @@
-//Events to moving a coin:
-// Add Event Listener to all coins
-// Select and hold coin object by clicking
-// click desired space, check space for "empty" class
-// coin object deselected and placed in previously empty space
+var heldCoin; //represents coin being "held" by cursor
+var heldCoinTd; // stores the table cell the coin came from
 
+// listen for board space to be clicked on by div tags
+let coinBoard = document.getElementById('coinBoard');
 
-// Game Board Array
-const board = [
-    1, 2, 3, 4, 5,
-    6, 7, 8, 9, 10,
-    11, 12, 13, 14, 15,
-    16, 17, 18, 19, 20,
-    21, 22, 23, 24, 25
-]
+function coinClicked(td) {
+    let img td.firstChild; //grab the image tag within the board square that was clicked
 
-// DOM references
-const cells = document.querySelectorAll("td");
-let pennies = document.querySelectorAll("p");
-let chosenCoin = {
-    coinId: -1,
-    indexOfBoardPiece: -1
-}
+    if (img.className != "noCoin") { //space holds a coin
+        printCoinProperties(td); // for debug, TODO: remove for production
+        if (heldCoin == null) { // no coin in heldCoin
 
-//Event listeners on each coin
-function coinEventListeners() {
-    for (let i = 0; i < pennies.length; i++) {
-        pennies[i].addEventListener("click", selectCoin)
+            // save the coin clicked on into a var, as well as td in case coin needs to be
+            // sent back to original square
+            heldCoin = new coinPile(td.dataset.type, td.dataset.count); //make new coinPile, use td data
+            heldCoin = td; // saves for later in case move fails
+
+            img.className = "noCoin"; // pulls coin from view while in heldCoin
+
+            console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
+
+            // TODO: add cursor functionality here (Davin's example on line 24)
+        } else { //already have a coin in heldCoin
+            // TODO: implement merge function
+            // for now, merge always fails
+            
+            //TODO: add cursor function here (Davin's ex on line 28)
+
+            heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td
+            heldCoin = null; // resets var to not holding a coin
+            heldCoinTd = null;
+        }
+
+    } else { // there is no coin in the space
+        if (heldCoin != null) { // and we are holding a coin
+            
+            // place coin, update image, className, and src, then update td cound and type
+            img.src = 'public/images/${heldCoin.imageName}'; // change image tag src to be held coin image
+            img.className = 'coin'; // update img tag to show image again
+
+            td.dataset.type = heldCoin.type; // coin's data to the td
+            td.dataset.count = heldCoin.count; // coin's numeric amount to the td
+
+            // clear the coin from the cursor (Davin's ex on line 46)
+
+            // reset the variables for holding coins
+            heldCoin = null;
+            heldCoinTd = null;
+
+            console.log("Placed coin"); // for debug, TODO: remove for production
+        }
     }
-
-//Select the coin
-function selectCoin() {
-    removeCoinonclick();
-    resetSelectedCoinProperties();
-    getSelectedCoin();
 }
 
-function removeCoinonclick() {
-    for(let i = 0; i < cells.length; i++) {
-        cells[i].removeAttribute("onclick");
-    }
-    //TODO: This is where to change the appearance of the cursor
-    // to drag coin around screen
-}
+// all spaces need the onClick event
 
-function resetSelectedCoinProperties() {
-    chosenCoin.coinId = -1;
-    chosenCoin.coinId = -1;
-    
-}
+allCells = document.getElementsByClassName('tdCoinSpace');
 
-function getSelectedCoin() {
-    chosenCoin.coinId = parseInt(event.target.id);
-    chosenCoin.indexOfBoardPiece = findCoin(chosenCoin.coinId);
-    console.log("Chosen Coin Id: " + chosenCoin.coinId + "\nBoard Index: " + chosenCoin.indexOfBoardPiece);
-}
-
-let findCoin = function (coinId) {
-    let parsed = parseInt(coinId);
-    return board.indexOf(parsed);
-};
-
-function giveCellsClick() {
-    for (i = 0; i > cells.length; i++)
-        if (cells.className == "empty") {
-        cells[i].setAttribute("onclick", "makemove()");
-    }
-
-}
-
-    coinEventListeners();
+for (i = 0; i < allCells.length; i++) {
+    let cell = allCells[i];
+    cell.addEventListener('click', function() {
+        coinClicked(cell);
+    });
 }
