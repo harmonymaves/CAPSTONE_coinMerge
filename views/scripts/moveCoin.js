@@ -20,12 +20,13 @@ function coinClicked(td) {
 
             console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
 
-            // TODO: add cursor functionality here (Davin's example on line 24)
+            // adds custom cursor to represent dragging coin
+            coinBoard.style = 'cursor: url(public/images/cursor${heldCoin.imageName}), auto;';
         } else { //already have a coin in heldCoin
             // TODO: implement merge function
             // for now, merge always fails
             
-            //TODO: add cursor function here (Davin's ex on line 28)
+            coinBoard.style = 'cursor: auto;'; //turns the cursor back into pointer
 
             heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td
             heldCoin = null; // resets var to not holding a coin
@@ -42,7 +43,8 @@ function coinClicked(td) {
             td.dataset.type = heldCoin.type; // coin's data to the td
             td.dataset.count = heldCoin.count; // coin's numeric amount to the td
 
-            // clear the coin from the cursor (Davin's ex on line 46)
+            // clear the coin from the cursor because it's no longer being held
+            coinBoard.style = 'cursor: auto;';
 
             // reset the variables for holding coins
             heldCoin = null;
@@ -54,7 +56,6 @@ function coinClicked(td) {
 }
 
 // all spaces need the onClick event
-
 allCells = document.getElementsByClassName('tdCoinSpace');
 
 for (i = 0; i < allCells.length; i++) {
