@@ -5,8 +5,3 @@ function printCoinProperties(td) {
     console.log(coinToPrint.toString());
   }
 }
-
-
-// give all the cells the onClick event
-
-allCells = document.getElementsByClassName("tdCoinSpace");
