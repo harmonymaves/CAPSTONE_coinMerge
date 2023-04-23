@@ -8,8 +8,11 @@ function clearBoard() {
     let cell = cellsToClear[i]; // the cell currently worked on
 
     clearCell(cell);
-
   }
+
+  heldCoin = null;
+  heldCoinTd = null;
+  coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
 }
 
 

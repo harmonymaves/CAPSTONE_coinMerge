@@ -10,11 +10,3 @@ function printCoinProperties(td) {
 // give all the cells the onClick event
 
 allCells = document.getElementsByClassName("tdCoinSpace");
-
-for (i = 0; i < allCells.length; i++) {
-  let cell = allCells[i];
-  cell.addEventListener("click", function() {
-    printCoinProperties(cell);
-  });
-}
-
