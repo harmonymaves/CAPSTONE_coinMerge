@@ -21,7 +21,7 @@ function coinClicked(td) {
             console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
 
             // adds custom cursor to represent dragging coin
-            coinBoard.style = `cursor: url(public/images/cursor${heldCoin.imageName}), auto;`;
+            coinBoard.style = `cursor: url(public/images/cursors/${heldCoin.imageName}), auto;`;
         } else { //already have a coin in heldCoin
             // TODO: implement merge function
             // for now, merge always fails
