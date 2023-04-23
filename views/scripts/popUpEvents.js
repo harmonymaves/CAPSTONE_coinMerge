@@ -3,6 +3,7 @@
     // Varibles:
     const welcomePopUp = document.getElementById('welcomePopUp');
     const startGameBtn = document.getElementById('startGameBtn');
+    const shopBtn = document.getElementById('shopBtn');
     const helpBtn = document.getElementById('helpBtn');
     const xBtnHelp = document.getElementById('xBtnHelp');
     const helpPopUp = document.getElementById('helpPopUp');
@@ -24,7 +25,10 @@
       helpPopUp.setAttribute('style', 'visibility: hidden')
     });
 
-    // TODO: Add events for button to display 'shopPopUp' as visible
+    // events for button to display 'shopPopUp' as visible
+    shopBtn.addEventListener("click", function() {
+      shopPopUp.setAttribute('style', 'visibility: visible')
+    })
 
     // Event for closing shopPopUp
     xBtnShop.addEventListener("click", function() {

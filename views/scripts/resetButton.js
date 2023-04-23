@@ -8,8 +8,10 @@ function clearBoard() {
     let cell = cellsToClear[i]; // the cell currently worked on
 
     clearCell(cell);
-
   }
+
+  heldCoin = null;
+  heldCoinTd = null;
 }
 
 

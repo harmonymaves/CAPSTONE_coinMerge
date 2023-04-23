@@ -5,7 +5,7 @@ var heldCoinTd; // stores the table cell the coin came from
 let coinBoard = document.getElementById('coinBoard');
 
 function coinClicked(td) {
-    let img td.firstChild; //grab the image tag within the board square that was clicked
+    let img = td.firstChild; //grab the image tag within the board square that was clicked
 
     if (img.className != "noCoin") { //space holds a coin
         printCoinProperties(td); // for debug, TODO: remove for production
@@ -14,7 +14,7 @@ function coinClicked(td) {
             // save the coin clicked on into a var, as well as td in case coin needs to be
             // sent back to original square
             heldCoin = new coinPile(td.dataset.type, td.dataset.count); //make new coinPile, use td data
-            heldCoin = td; // saves for later in case move fails
+            heldCoinTd = td; // saves for later in case move fails
 
             img.className = "noCoin"; // pulls coin from view while in heldCoin
 
@@ -37,7 +37,7 @@ function coinClicked(td) {
         if (heldCoin != null) { // and we are holding a coin
             
             // place coin, update image, className, and src, then update td cound and type
-            img.src = 'public/images/${heldCoin.imageName}'; // change image tag src to be held coin image
+            img.src = `public/images/${heldCoin.imageName}`; // change image tag src to be held coin image
             img.className = 'coin'; // update img tag to show image again
 
             td.dataset.type = heldCoin.type; // coin's data to the td
