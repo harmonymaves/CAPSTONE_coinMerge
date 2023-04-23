@@ -12,6 +12,7 @@ function clearBoard() {
 
   heldCoin = null;
   heldCoinTd = null;
+  coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
 }
 
 
