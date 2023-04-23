@@ -27,14 +27,13 @@ function coinClicked(td) {
             // for now, merge always fails
 
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
-
             heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td
             heldCoin = null; // resets var to not holding a coin
             heldCoinTd = null;
         }
 
     } else { // there is no coin in the space
-        if (heldCoin != null) { // and we are holding a coin
+        if (heldCoin != null) { // we are holding a coin
             
             // place coin, update image, className, and src, then update td cound and type
             img.src = `public/images/${heldCoin.imageName}`; // change image tag src to be held coin image
