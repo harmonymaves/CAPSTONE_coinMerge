@@ -19,16 +19,9 @@ class coinPile {
   // which is the name of one of our images.
   //
 
-  imageName; // see above ^
-
   constructor(type, count) {
     this.type = type;
-    this.count = count;
-    if (type != "dollar") { // type is not dollar
-      this.imageName = type + count + ".png";
-    } else { // type is dollar
-      this.imageName = "dollar.png"; // there is no "dollar1.png", only "dollar.png"
-    }
+    this.count = Number(count);
   } // end constructor
 
   getValue() { // returns the value of the entire pile
@@ -49,8 +42,101 @@ class coinPile {
 
   } // end getValue
 
+  getImageName() {
+    if (this.type != "dollar") { // type is not dollar
+      return this.type + this.count + ".png";
+    } else { // type is dollar
+      return "dollar.png"; // there is no "dollar1.png", only "dollar.png"
+    }
+  }
+
+  merge(coinToMerge) { // merges a coin onto this current coin. Returns true on success, false on failure.
+
+    if (coinToMerge.type != this.type) { // coins must be same type.
+
+      // Special case for 2 dime 1 nickel = quarter
+      if ((this.type == "dime" && this.count == 2 && coinToMerge.type == "nickel" && coinToMerge.count == 1) || (coinToMerge.type == "dime" && coinToMerge.count == 2 && this.type == "nickel" && this.count == 1)){
+        this.count = 1;
+        this.type = "quarter";
+        return true;
+      } else {
+        console.log('Types don\'t match.'); // TODO REMOVE THIS LOG
+        return false;
+      }
+
+    } else {
+      // types match, merge may be possible
+      switch (this.type) {
+        case "penny":
+          if (this.count + coinToMerge.count <= 5) {
+            this.count += coinToMerge.count;
+          } else {
+            return false;
+          }
+          break;
+        case "nickel":
+          if (this.count + coinToMerge.count == 2) {
+            this.count += coinToMerge.count;
+          } else {
+            return false;
+          }
+          break;
+        case "dime":
+          if (this.count + coinToMerge.count <= 5) {
+            this.count += coinToMerge.count;
+          } else {
+            return false;
+          }
+          break;
+        case "quarter":
+          if (this.count + coinToMerge.count <= 4) {
+            this.count += coinToMerge.count;
+          } else {
+            return false;
+          }
+          break;
+        default:
+          return false; // cant merge if type = dollar or invalid coin type.
+      }
+      this.checkForUpgrade();
+      return true;
+    } // end if this.type != coinToMerge.type
+
+  } // end merge function
+
+  checkForUpgrade() {
+    switch (this.type) {
+      case "penny":
+        if (this.count == 5) {
+          this.count = 1;
+          this.type = "nickel";
+        }
+        break;
+      case "nickel":
+        if (this.count == 2) {
+          this.count = 1;
+          this.type = "dime"
+        }
+        break;
+      case "dime":
+        if (this.count == 5) {
+          this.count = 2;
+          this.type = "quarter";
+        }
+        break;
+      case "quarter":
+        if (this.count == 4) {
+          this.count = 1;
+          this.type = "dollar";
+        }
+        break;
+      default:
+        break;
+    }// end switch type
+  } // end checkForUpgrade
+
   toString() {
-    //build output string
+    //build output string, ignore the indents; they're necessary to get proper indents in the console.
     let stringOutput = `Coin type: ${this.type}
 Coin count: ${this.count}
 Value of Pile: ${this.getValue()}`;
