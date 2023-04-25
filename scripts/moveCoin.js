@@ -21,7 +21,7 @@ function coinClicked(td) {
             console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
 
             // adds custom cursor to represent dragging coin
-            coinBoard.style = `cursor: url(public/images/cursors/${heldCoin.imageName}), auto;`;
+            coinBoard.style = `cursor: url(images/cursors/${heldCoin.imageName}), auto;`;
         } else { //already have a coin in heldCoin
             // TODO: implement merge function
             // for now, merge always fails
@@ -36,7 +36,7 @@ function coinClicked(td) {
         if (heldCoin != null) { // we are holding a coin
             
             // place coin, update image, className, and src, then update td cound and type
-            img.src = `public/images/${heldCoin.imageName}`; // change image tag src to be held coin image
+            img.src = `images/${heldCoin.imageName}`; // change image tag src to be held coin image
             img.className = 'coin'; // update img tag to show image again
 
             td.dataset.type = heldCoin.type; // coin's data to the td
