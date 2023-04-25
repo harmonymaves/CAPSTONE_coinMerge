@@ -20,7 +20,7 @@ Currently, there are multiple games using merges as the major gameplay.  However
 
 Some games available as merge games include [Travel Town](https://play.google.com/store/apps/details?id=io.randomco.travel&hl=en_US&gl=US), [Merge Mansion](https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en_US&gl=US), and [Merge Dragons](https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en_US&gl=US).  These games are fun, but they are large and not aimed at children.  Current available coin count practice is through a written curriculum that may or may not make sense to the average parent, and may require supervision and interaction that could create obstacles for families where time and money are scarce resources.
 
-![Alt: Image of Travel Town](/public/images/TravelTown.jpg)
+![Alt: Image of Travel Town](/images/TravelTown.jpg)
 
 Image of [Travel Town](https://play.google.com/store/apps/details?id=io.randomco.travel&hl=en_US&gl=US), a merging game currently available on Android
 
@@ -28,8 +28,8 @@ Sample UI
 ---------
 We have a couple of different visuals for our sample UI. Our first image demonstrates what the general experience would look like overall while the second image focuses more on the general functionality of the game.
 
-![Alt: First Sample UI](/public/images/startingUI.png)
-![Alt: Second Sample UI](/public/images/startingUI2.PNG)
+![Alt: First Sample UI](/images/startingUI.png)
+![Alt: Second Sample UI](/images/startingUI2.PNG)
 
 Scope
 -----
@@ -58,4 +58,4 @@ Proposed Styles
 ---------------
 For our color theme, we wanted to use colors that gave off a feeling of being around coins and a candy shop, therefore we generated the following color scheme.
 
-![Image of our color theme[](https://colorhunt.co/palette/9ede73f7ea00e48900be0000)](/public/images/colorTheme.png)
+![Image of our color theme[](https://colorhunt.co/palette/9ede73f7ea00e48900be0000)](/images/colorTheme.png)

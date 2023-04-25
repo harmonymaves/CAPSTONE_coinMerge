@@ -39,7 +39,7 @@ function populateEmptySpace() {
     for (i = 0; i < numberOfCellsToPopulate; i++) {
       let cellToChange = emptyCells[randomInt(0, emptyCells.length)];
       let imgToChange = cellToChange.firstChild;
-      imgToChange.src = "public/images/penny1.png";
+      imgToChange.src = "images/penny1.png";
       imgToChange.className = "coin";
       cellToChange.dataset.type = "penny";
       cellToChange.dataset.count = 1;
