@@ -57,6 +57,9 @@ function load_customers() {
 	// or that random number could be an int of how many pieces of candy
 	// they have, which would determine their cost. This would allow 
 	// candy to be more customizable thru shop upgrades. 
+	// (V) I like assigning a directly random number, from the educational
+	// standpoint, and I think it makes sense to trim out steps that do add
+	// to our workload but don't add educational value.
 
 	display_customers(customer_object);
 	load_coins(customer_object);
@@ -185,6 +188,14 @@ onclick function mergeCoins() {
 		check to see if the merge is not diagonal by calculating the difference between the squares
 		// Thinking about this logic, I'm wondering if we should have the information be stored in a hash table and use that to calculate, rather
 		// than us coming up with our own solution. But I would appreciate any help here!
+		//(V) My thoughts for the logic was like a visual array- each square that can hold a coin has
+		// a key-value pair consisting of an id for that square and a variable to hold the coins
+		// currently on that square.  When we click-drag-release, the two variables are compared and
+		// if they meet the logic (are each pennies, are two dimes and one nickel, etc), probably using
+		// a case statement, those two trigger the "become_next_denomination" function.  Thoughts?
+		// This might also be a start on attacking the random assignment of coins- if a square is empty,
+		// the variable would be null.  We could do some random function that assigns to a null variable
+		// in the canvas?		
 
 	update score
 	call load_Coins(customer_data_object)

@@ -1,0 +1,68 @@
+.popUpClass {
+  position: fixed;
+  width: 500px;
+  height: 340px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
+  border-radius: 10%;
+  text-align: center;
+}
+.popUpClass ul {
+  text-align: left;
+  margin: 0 20%;
+}
+.popUpClass p {
+  margin: 0 20%;
+}
+#welcomePopUp {
+  height: 310px;
+  visibility: visible;
+  background-color: #9EDE73;
+}
+#titleTag {
+  margin-bottom: -5px;
+}
+#helpBtnImg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
+  border-radius: 50%;
+}
+#helpPopUp {
+  top: 25%;
+  height: 600px;
+  background-color: bisque;
+}
+#shopPopUp {
+  visibility: hidden;
+  background-color: tan;
+}
+.xButtonImg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.xButtonAll, #helpBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#helpBtn {
+  position: fixed;
+  margin: 5px 5px;
+}
