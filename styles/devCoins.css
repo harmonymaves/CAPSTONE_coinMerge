@@ -5,6 +5,25 @@
     text-align: center;
 }
 
+.tdCsCoinSpace {
+    background-color: burlywood;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+}
+
+#customerArea {
+    background-color: brown;
+    width: 207px;
+    height: 147px;
+    text-align: center;
+}
+
+#customerArea img{
+    width: 207px;
+    height: 77px;
+}
+
 .tdCoinSpace img {
     width: 60px;
     height: 60px;
