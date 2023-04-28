@@ -89,12 +89,3 @@ for (i = 0; i < allCells.length; i++) {
     });
 }
 
-//customer cells all need the onClick event
-custCells = document.getElementById('tdCsCoinSpace');
-
-for (i = 0; i < custCells.length; i++) {
-    let cell = custCells[i];
-    cell.addEventListener('click', function() {
-        coinClicked(cell);
-    });
-}
