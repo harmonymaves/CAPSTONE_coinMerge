@@ -19,15 +19,39 @@ function coinToCustomer(td) {
             // adds custom cursor to represent dragging coin
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
             customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
-        } else { // already a coin there
-            heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back                console.log("Merge failure...");
+        } else { //already have a coin in heldCoin
+            // Coin in grid space and held, so attempt a merge
+
+            console.log('merge entered');
+            
+            // make a coinPile instance using the td clicked
+            clickedCoin = new coinPile(td.dataset.type, td.dataset.count);
+
+            // if merge succeeds, update the image, clear the data from
+            // the heldCoin and heldCoin's original td, as well as the heldCoinTd
+
+            // the reason we can do the merge function as the parameter is
+            // because the merge function returns a boolean, depending on
+            // success or failure of the merge
+            if (clickedCoin.merge(heldCoin)) { // success
+                img.src = `images/${clickedCoin.getImageName()}`; // update image
+                td.dataset.type = clickedCoin.type; // update td's data
+                td.dataset.count= clickedCoin.count;
+                heldCoinTd.dataset.type = ""; // actually remove the data from the held coin's original td
+                heldCoinTd.dataset.count = 0;
+                console.log("MERGE SUCCESS!"); // TODO: REMOVE FROM PRODUCTION
+            } else { // failure
+                heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+                console.log("Merge failure...");
             }
 
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
             customerCoins.style = `cursor: auto;`;
             heldCoin = null; // resets var to not holding a coin
             heldCoinTd = null;
-        } else { // there is no coin in the space
+        }
+
+    } else { // there is no coin in the space
         if (heldCoin != null) { // we are holding a coin
             
             // place coin, update image, className, and src, then update td count and type
@@ -46,10 +70,10 @@ function coinToCustomer(td) {
             heldCoinTd = null;
 
             console.log("Placed coin"); // for debug, TODO: remove for production
-        } 
-   }
+        }
+    }
 
-   checkCoins();
+   checkCoins()
     
 }
 
