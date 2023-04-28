@@ -1,24 +1,59 @@
 // if a coin or coin pile is dropped into the customerCoins
 // WHEN coin is placed in customer space (click event)
+function coinToCustomer(td) {
+    let img = td.firstChild; //grab the image tag within the board square that was clicked
+
+    if (img.className != "noCoin") { //space holds a coin
+        printCoinProperties(td); // for debug, TODO: remove for production
+        if (heldCoin == null) { // no coin in heldCoin
+
+            // save the coin clicked on into a var, as well as td in case coin needs to be
+            // sent back to original square
+            heldCoin = new coinPile(td.dataset.type, td.dataset.count); //make new coinPile, use td data
+            heldCoinTd = td; // saves for later in case move fails
+
+            img.className = "noCoin"; // pulls coin from view while in heldCoin
+
+            console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
+
+            // adds custom cursor to represent dragging coin
+            coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+        } else { // already a coin there
+            heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back                console.log("Merge failure...");
+            }
+
+            coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
+            customerCoins.style = `cursor: auto;`;
+            heldCoin = null; // resets var to not holding a coin
+            heldCoinTd = null;
+        } else { // there is no coin in the space
+        if (heldCoin != null) { // we are holding a coin
+            
+            // place coin, update image, className, and src, then update td count and type
+            img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
+            img.className = 'coin'; // update img tag to show image again
+
+            td.dataset.type = heldCoin.type; // coin's data to the td
+            td.dataset.count = heldCoin.count; // coin's numeric amount to the td
+
+            // clear the coin from the cursor because it's no longer being held
+            coinBoard.style = `cursor: auto;`;
+            customerCoins.style = `cursor: auto;`;
+
+            // reset the variables for holding coins
+            heldCoin = null;
+            heldCoinTd = null;
+
+            console.log("Placed coin"); // for debug, TODO: remove for production
+        } 
+   }
+
+   checkCoins();
+    
+}
+
 function checkCoins(td) {
-    if (heldCoin != null) { //cursor holds a coin
-        if (img.className == 'noCoin') { // space is available in the customer box
-        img.src = `images/${heldCoin.getImageName()}`;
-        img.className = 'coin';
-
-        td.dataset.type = heldCoin.type; // coin's data to the td
-        td.dataset.count = heldCoin.count; // coin's numeric amount to the td
-
-        coinBoard.style = `cursor: auto;`;
-        customerCoins.style = `cursor: auto;`;
-
-        heldCoin = null;
-        heldCoinTd = null;
-
-        console.log("Placed coin for customer");  //TODO: remove for production
-        }
-
-    }
     // total all three coin spaces
     let totalValue = coinPile1.getValue() + coinPile2.getValue() + coinPile3.getValue();
 
@@ -38,6 +73,6 @@ custCells = document.getElementsByClassName('tdCsCoinSpace');
 for (i = 0; i < custCells.length; i++) {
     let cell = custCells[i];
     cell.addEventListener('click', function() {
-        coinClicked(cell);
+        coinToCustomer(cell);
     });
 }

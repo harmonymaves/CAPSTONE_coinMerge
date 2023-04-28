@@ -24,14 +24,14 @@
     height: 77px;
 }
 
-.tdCoinSpace img {
+.tdCoinSpace img, .tdCsCoinSpace img{
     width: 60px;
     height: 60px;
     margin: auto;
     display: inline;
 }
 
-.tdCoinSpace img.noCoin {
+.tdCoinSpace img.noCoin, .tdCsCoinSpace img.noCoin{
     display: none;
 }
 
