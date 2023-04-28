@@ -3,6 +3,7 @@ var heldCoinTd; // stores the table cell the coin came from
 
 // listen for board space to be clicked on by div tags
 let coinBoard = document.getElementById('coinBoard');
+let customerCoins = document.getElementById('customerCoinBoard');
 
 function coinClicked(td) {
     let img = td.firstChild; //grab the image tag within the board square that was clicked
@@ -22,6 +23,7 @@ function coinClicked(td) {
 
             // adds custom cursor to represent dragging coin
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
         } else { //already have a coin in heldCoin
             // Coin in grid space and held, so attempt a merge
 
@@ -49,6 +51,7 @@ function coinClicked(td) {
             }
 
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
+            customerCoins.style = `cursor: auto;`;
             heldCoin = null; // resets var to not holding a coin
             heldCoinTd = null;
         }
@@ -56,7 +59,7 @@ function coinClicked(td) {
     } else { // there is no coin in the space
         if (heldCoin != null) { // we are holding a coin
             
-            // place coin, update image, className, and src, then update td cound and type
+            // place coin, update image, className, and src, then update td count and type
             img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
             img.className = 'coin'; // update img tag to show image again
 
@@ -65,6 +68,7 @@ function coinClicked(td) {
 
             // clear the coin from the cursor because it's no longer being held
             coinBoard.style = `cursor: auto;`;
+            customerCoins.style = `cursor: auto;`;
 
             // reset the variables for holding coins
             heldCoin = null;
@@ -80,6 +84,16 @@ allCells = document.getElementsByClassName('tdCoinSpace');
 
 for (i = 0; i < allCells.length; i++) {
     let cell = allCells[i];
+    cell.addEventListener('click', function() {
+        coinClicked(cell);
+    });
+}
+
+//customer cells all need the onClick event
+custCells = document.getElementById('tdCsCoinSpace');
+
+for (i = 0; i < custCells.length; i++) {
+    let cell = custCells[i];
     cell.addEventListener('click', function() {
         coinClicked(cell);
     });
