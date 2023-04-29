@@ -10,7 +10,7 @@ const tdCoinSpace = document.querySelectorAll(".tdCoinSpace");
 
 function saveGame() {
   if (typeof(Storage) !== "undefined") { // Is localStorage supported?
-      // Will override any previous saved data... saving data now...
+      // Note: will override any previous saved data... saving data now...
       var dataTables = "";
       tdCoinSpace.forEach(function(currentValue, currentIndex) {
       if(currentValue.firstChild.className != "noCoin") {
