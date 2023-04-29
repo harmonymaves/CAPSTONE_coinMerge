@@ -66,3 +66,9 @@
   position: fixed;
   margin: 5px 5px;
 }
+#loadnSavePopUp {
+  background-color: rgb(197, 197, 53);
+}
+#loadBtn:hover,#saveBtn:hover {
+cursor: pointer;
+}
