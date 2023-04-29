@@ -34,7 +34,7 @@ function coinToCustomer(td) {
 
     } else { // there is no coin in the space
         if (heldCoin != null) { // we are holding a coin
-            
+
             // place coin, update image, className, and src, then update td count and type
             img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
             img.className = 'coin'; // update img tag to show image again
@@ -55,23 +55,27 @@ function coinToCustomer(td) {
     }
 
    checkCoins()
-    
+
 }
 
 function checkCoins(td) {
-    
+
     // total all three coin spaces
-    let totalValue = coinPile1.getValue() + coinPile2.getValue() + coinPile3.getValue();
-    alert("coinPile1: " + coinPile1.getValue() + "coinPile2: " + coinPile2.getValue())
-    /*
+    let pile1 = .04; //TODO: change these to get the value of each customer box
+    let pile2 = .28;
+    let pile3 = .93;
+    let totalValue = pile1 + pile2 + pile3;
+    
     // and check against requested amount
-    if (totalValue == coinTotal) {
+    if (totalValue == coinTotal) { //dev amount is 1.25
         // if matching, alert "thanks for the correct change!"
         alert("Thanks for the correct change!")
-
         // that customer deletes and adds a new one
         customerRequest();
-    } */
+    } else {
+        // no match, alert to keep trying
+        alert("Hmm, that's not correct change")
+    }
 } 
 //customer cells all need the onClick event
 custCells = document.getElementsByClassName('tdCsCoinSpace');
