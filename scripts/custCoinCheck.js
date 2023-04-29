@@ -58,13 +58,22 @@ function coinToCustomer(td) {
 
 }
 
+const tdCsCoinSpace = document.querySelectorAll(".tdCsCoinSpace");
+
 function checkCoins(td) {
 
     // total all three coin spaces
-    let pile1 = .04; //TODO: change these to get the value of each customer box
-    let pile2 = .28;
-    let pile3 = .93;
+    let pile1Object = new coinPile(tdCsCoinSpace[0].dataset.type, tdCsCoinSpace[0].dataset.count);
+    let pile2Object = new coinPile(tdCsCoinSpace[1].dataset.type, tdCsCoinSpace[1].dataset.count);
+    let pile3Object = new coinPile(tdCsCoinSpace[2].dataset.type, tdCsCoinSpace[2].dataset.count);
+        
+    let pile1 = pile1Object.getValue();
+    let pile2 = pile2Object.getValue();
+    let pile3 = pile3Object.getValue();
+    console.log("p1:" + pile1 + " p2:" + pile2 + " p3:" + pile3)
+
     let totalValue = pile1 + pile2 + pile3;
+    console.log(totalValue)
     
     // and check against requested amount
     if (totalValue == coinTotal) { //dev amount is 1.25
@@ -72,11 +81,17 @@ function checkCoins(td) {
         alert("Thanks for the correct change!")
         // that customer deletes and adds a new one
         customerRequest();
-    } else {
-        // no match, alert to keep trying
-        alert("Hmm, that's not correct change")
+        clearCustomerBoxes();
     }
 } 
+
+function clearCustomerBoxes() {
+
+tdCsCoinSpace[0].dataset.type = "";
+tdCsCoinSpace[0].dataset.count = 0;
+tdCsCoinSpace.className = "noCoin";
+
+}
 //customer cells all need the onClick event
 custCells = document.getElementsByClassName('tdCsCoinSpace');
 
