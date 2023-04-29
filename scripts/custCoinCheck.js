@@ -19,32 +19,13 @@ function coinToCustomer(td) {
             // adds custom cursor to represent dragging coin
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
             customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
-        } else { //already have a coin in heldCoin
-            // Coin in grid space and held, so attempt a merge
-
-            console.log('merge entered');
-            
+        } else {
             // make a coinPile instance using the td clicked
             clickedCoin = new coinPile(td.dataset.type, td.dataset.count);
 
-            // if merge succeeds, update the image, clear the data from
-            // the heldCoin and heldCoin's original td, as well as the heldCoinTd
-
-            // the reason we can do the merge function as the parameter is
-            // because the merge function returns a boolean, depending on
-            // success or failure of the merge
-            if (clickedCoin.merge(heldCoin)) { // success
-                img.src = `images/${clickedCoin.getImageName()}`; // update image
-                td.dataset.type = clickedCoin.type; // update td's data
-                td.dataset.count= clickedCoin.count;
-                heldCoinTd.dataset.type = ""; // actually remove the data from the held coin's original td
-                heldCoinTd.dataset.count = 0;
-                console.log("MERGE SUCCESS!"); // TODO: REMOVE FROM PRODUCTION
-            } else { // failure
-                heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
-                console.log("Merge failure...");
-            }
-
+            // don't even check for a merge, just put it back where it came from
+            heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+            console.log("Merge failure...");
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
             customerCoins.style = `cursor: auto;`;
             heldCoin = null; // resets var to not holding a coin
@@ -78,10 +59,11 @@ function coinToCustomer(td) {
 }
 
 function checkCoins(td) {
+    
     // total all three coin spaces
     let totalValue = coinPile1.getValue() + coinPile2.getValue() + coinPile3.getValue();
-
-
+    alert("coinPile1: " + coinPile1.getValue() + "coinPile2: " + coinPile2.getValue())
+    /*
     // and check against requested amount
     if (totalValue == coinTotal) {
         // if matching, alert "thanks for the correct change!"
@@ -89,8 +71,8 @@ function checkCoins(td) {
 
         // that customer deletes and adds a new one
         customerRequest();
-    }
-}
+    } */
+} 
 //customer cells all need the onClick event
 custCells = document.getElementsByClassName('tdCsCoinSpace');
 
