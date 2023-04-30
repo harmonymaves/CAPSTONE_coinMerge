@@ -69,7 +69,7 @@ function customerRequest() {
   console.log(coinTotal);
 
 
-  csReqest.innerText = "Hi! I need: \n" + coinTotal + "\n in change please!";
+  csReqest.innerText = "Hi! I need: \n" + (coinTotal / 100) + "\n in change please!";
   
 }
 

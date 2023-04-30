@@ -27,13 +27,13 @@ class coinPile {
   getValue() { // returns the value of the entire pile
     switch (this.type) {
       case "penny":
-        return this.count * 0.01; // multiply the count by the value of 1 coin, to get value of all coins
+        return this.count * 1; // multiply the count by the value of 1 coin, to get value of all coins
       case "nickel":
-        return this.count * 0.05;
+        return this.count * 5;
       case "dime":
-        return this.count * 0.1;
+        return this.count * 10;
       case "quarter":
-        return this.count * 0.25;
+        return this.count * 25;
       case "dollar":
         return this.count;
       default:
