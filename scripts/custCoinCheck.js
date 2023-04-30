@@ -87,9 +87,13 @@ function checkCoins(td) {
 
 function clearCustomerBoxes() {
 
-tdCsCoinSpace[0].dataset.type = "";
-tdCsCoinSpace[0].dataset.count = 0;
-tdCsCoinSpace.className = "noCoin";
+    const custCellsToClear = document.getElementsByClassName("tdCsCoinSpace");
+
+    for(i = 0; i < custCellsToClear.length; i++) {
+        let custCell = custCellsToClear[i];
+
+        clearCell(custCell);
+    }
 
 }
 //customer cells all need the onClick event
