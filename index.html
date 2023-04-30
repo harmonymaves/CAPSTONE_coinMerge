@@ -31,14 +31,16 @@
     <div id="customerArea"><img src="images/colorTheme.png" alt="This is a placeholder image that will hold images of customers">
       <div id="customerRequest">
       </div>
-    </div>    
+    </div>
+    <div id ="customerCoinBoard">    
     <table id="customerCoinPile">
-      <tr>
-        <td class="tdCsCoinSpace"><div id="customerCoinPile1"></div></td>
-        <td class="tdCsCoinSpace"><div id="customerCoinPile2"></div></td>
-        <td class="tdCsCoinSpace"><div id="customerCoinPile3"></div></td>
+      <tr class="customerRow">
+        <td class="tdCsCoinSpace"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile1"></div></td>
+        <td class="tdCsCoinSpace"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile2"></div></td>
+        <td class="tdCsCoinSpace"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile3"></div></td>
       </tr>
     </table>
+    </div>
   </div>
   <!--CoinBoard Section-->  
   <div id="coinBoard">
@@ -147,6 +149,8 @@
   <script src="scripts/coinJarAddCoins.js"></script>
   <script src="scripts/resetButton.js"></script>
   <script src="scripts/customer.js"></script>
+  <script src="scripts/custCoinCheck.js"></script>
   <script src="scripts/loadSaveGame.js"></script>
+
 </body>
 </html>

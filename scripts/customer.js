@@ -72,4 +72,5 @@ function customerRequest() {
   csReqest.innerText = "Hi! I need: \n" + coinTotal + "\n in change please!";
   
 }
+
 customerRequest();
