@@ -1,9 +1,11 @@
 var heldCoin; //represents coin being "held" by cursor
 var heldCoinTd; // stores the table cell the coin came from
+var mergeCounter = 0; // incrementing variable for point system first version
 
 // listen for board space to be clicked on by div tags
 let coinBoard = document.getElementById('coinBoard');
 let customerCoins = document.getElementById('customerCoinBoard');
+let scoreArea = document.getElementById('scoreArea');
 
 function coinClicked(td) {
     let img = td.firstChild; //grab the image tag within the board square that was clicked
@@ -44,6 +46,8 @@ function coinClicked(td) {
                 td.dataset.count= clickedCoin.count;
                 heldCoinTd.dataset.type = ""; // actually remove the data from the held coin's original td
                 heldCoinTd.dataset.count = 0;
+                mergeCounter++; // Update the counter
+                scoreArea.innerText = mergeCounter; // Display the counter
                 console.log("MERGE SUCCESS!"); // TODO: REMOVE FROM PRODUCTION
             } else { // failure
                 heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
