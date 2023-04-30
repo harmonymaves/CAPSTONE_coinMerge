@@ -89,3 +89,21 @@ for (i = 0; i < allCells.length; i++) {
     });
 }
 
+function eraseCoin(img) {
+coinJar.removeEventListener('click', populateEmptySpace);
+coinBoard.style = `cursor: auto;`; 
+customerCoins.style = `cursor: auto;`;
+heldCoin = null; 
+heldCoinTd = null;
+}
+
+// Grabbing the coinBtn element
+coinJar = document.getElementById("coinBtn");
+// Adding onClick event to the coinBtn
+coinJar.addEventListener("click", 
+// Using an if to see if the event listener for creating coins needs to be turned off
+function() {if (heldCoin != null) {
+    eraseCoin(coinJar);
+} // Making sure the event listener is being applied after erasing the coin
+document.getElementById("coinBtn").addEventListener("click", populateEmptySpace);
+});
