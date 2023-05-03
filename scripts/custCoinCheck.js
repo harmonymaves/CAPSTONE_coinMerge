@@ -39,10 +39,11 @@ function coinToCustomer(td) {
             img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
             img.className = 'coin'; // update img tag to show image again
 
-            td.dataset.type = heldCoin.type; // coin's data to the td
-            td.dataset.count = heldCoin.count; // coin's numeric amount to the td
             heldCoinTd.dataset.type = ""; // Bug fix: clear the data from the original td.
             heldCoinTd.dataset.count = 0;
+            td.dataset.type = heldCoin.type; // coin's data to the td
+            td.dataset.count = heldCoin.count; // coin's numeric amount to the td
+            
 
             // clear the coin from the cursor because it's no longer being held
             coinBoard.style = `cursor: auto;`;
