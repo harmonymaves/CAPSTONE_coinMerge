@@ -56,5 +56,11 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * max + min);
 }
 
-window.addEventListener("load", populateEmptySpace);
+function returningPlayerChecker() {
+  if(returningPlayer == false) { // Implemented to stop returning players from having their board populating
+    populateEmptySpace();
+  }
+}
+
+window.addEventListener("load", returningPlayerChecker);
 document.getElementById("coinBtn").addEventListener("click", populateEmptySpace);
