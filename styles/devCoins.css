@@ -29,6 +29,7 @@
     height: 60px;
     margin: auto;
     display: inline;
+    user-select: none;
 }
 
 .tdCoinSpace img.noCoin, .tdCsCoinSpace img.noCoin{
