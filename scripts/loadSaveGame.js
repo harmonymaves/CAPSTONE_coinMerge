@@ -1,98 +1,90 @@
 // Local Storage Keys & Purpuse:
 //
 // gameBoard -> save gameboard layout
+// custBoard -> save custboard layout
 // points -> their total points ||| Coming soon
 // items -> items they own in shop ||| Coming soon
 const saveBtn = document.getElementById("saveBtn");
 const loadBtn = document.getElementById("loadBtn");
 const loadnSavePopUpClose = document.getElementById("loadnSavePopUp");
 const tdCoinSpace = document.querySelectorAll(".tdCoinSpace");
+var returningPlayer = false;
 
-function saveGame() {
-  if (typeof(Storage) !== "undefined") { // Is localStorage supported?
-      // Note: will override any previous saved data... saving data now...
-      var custDataTables = "";
-      var dataTables = "";
-      tdCsCoinSpace.forEach(function(currentValue, currentIndex) { // For the customer grid
-        if(currentValue.firstChild.className != "noCoin") { // Something is there, save the data
-          custDataTables = custDataTables.concat(String(currentIndex), ",", currentValue.getAttribute('data-type'), ",", currentValue.getAttribute('data-count'), ",");
-        }
-      });
-      tdCoinSpace.forEach(function(currentValue, currentIndex) { // For the gameBoard
-      if(currentValue.firstChild.className != "noCoin") { // Something is there, save the data
-          dataTables = dataTables.concat(String(currentIndex), ",", currentValue.getAttribute('data-type'), ",", currentValue.getAttribute('data-count'), ",");
-        }
-      });
-      console.log("DataTables Saved:\nCustomer: " + custDataTables.split(",") + "\nGameBoard: " + dataTables.split(",")); // View of what was added
-      localStorage.setItem('custBoard', custDataTables);
-      localStorage.setItem('gameBoard', dataTables);
-      alert("Game Saved!");
-  } else {
-    alert("Game Progress Can Not Be Saved/Loaded. Please upgrade browser."); // Let the child know game can't be saved
-  }
-  loadnSavePopUpClose.style.visibility = "hidden"; // Close the popup for convience
-}
+/*
+   Important Notice: Players who's devices don't support
+   autosave/autoload WILL NOT be notified about their data 
+   not being saved/loaded. Reason behind this: players data
+   will save for every click they do, therefore if an else
+   runs for every click they do, they will be notified
+   every move they make in the game that their data isn't
+   saved. That's not okay! As for load, they will just
+   enter the game like a new player since data can't be
+   loaded.
+*/
 
-function loadGame() {
-  if (typeof(Storage) !== "undefined") { // Is localStorage supported?
-    if ((localStorage.getItem("gameBoard") === null || localStorage.getItem("gameBoard") === "") || (localStorage.getItem("custBoard") === null || localStorage.getItem("custBoard") === "")) { // Doesn't exist
-      alert("Can not load data. No saved game on this device.");
-    } else { // Exists -> load data
-      clearCustBoard(); // Clear the cust board before loading data
-      clearBoard(); // Clear the board before loading data so it matches exactly with the load
-      function updateBoard(splitCells, tdLocation) {
-        splitCells = splitCells.substring(0, splitCells.length-1);
-        splitCells = splitCells.split(",");
-
-        for(let i = 0; i < splitCells.length; i++) { // Loops through all gathered data
-          let type = tdLocation[parseInt(splitCells[i])].dataset.type = splitCells[i+1]; // Set type
-          let count = tdLocation[parseInt(splitCells[i])].dataset.count = splitCells[i+2]; // Set count
-          var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
-          tdLocation[parseInt(splitCells[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
-          tdLocation[parseInt(splitCells[i])].firstChild.className = "coin"; // Fixing the img class to update css
-          console.log(addingCoin.toString()); //See what loaded
-          i += 2;
-        }
-      }
-      updateBoard(localStorage.getItem("custBoard"), tdCsCoinSpace);
-      updateBoard(localStorage.getItem("gameBoard"), tdCoinSpace);
-      // // Custboard Section
-      // var splitCells = localStorage.getItem("custBoard");
-
-      // // Gameboard Section
-      // splitCells = localStorage.getItem("gameBoard");
-      // splitCells = splitCells.substring(0, splitCells.length-1);
-      // splitCells = splitCells.split(",");
-      
-      // for(let i = 0; i < splitCells.length; i++) { // Loops through all gathered data
-      //   let type = tdCoinSpace[parseInt(splitCells[i])].dataset.type = splitCells[i+1]; // Set type
-      //   let count = tdCoinSpace[parseInt(splitCells[i])].dataset.count = splitCells[i+2]; // Set count
-      //   var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
-      //   tdCoinSpace[parseInt(splitCells[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
-      //   tdCoinSpace[parseInt(splitCells[i])].firstChild.className = "coin"; // Fixing the img class to update css
-      //   console.log(addingCoin.toString()); //See what loaded
-      //   i += 2;
-      // }
-      alert("Game Loaded!");
+function saveGame(tdLocation, localStorageName) { // String, Nodelist, String
+  var saveDataIn = "";
+  tdLocation.forEach(function(currentValue, currentIndex) { // For the customer grid
+    if(currentValue.firstChild.className != "noCoin") { // Something is there, save the data
+      saveDataIn = saveDataIn.concat(String(currentIndex), ",", currentValue.getAttribute('data-type'), ",", currentValue.getAttribute('data-count'), ",");
     }
-  } else {
-    alert("Game Progress Can Not Be Saved/Loaded. Please upgrade browser."); // Let the child know game can't be saved
-  }
-  loadnSavePopUpClose.style.visibility = "hidden"; // Close the popup for convience
+  });
+  console.log("DataTables Saved: " + saveDataIn.split(",")); // View of what was added
+  localStorage.setItem(localStorageName, saveDataIn);
+  returningPlayer = true; // They are a returning player (stops auto coins from spawning)
 }
 
-function clearCustBoard() {
-  // for each td tag on the board, call the clearCell function
-  for (i = 0; i < tdCsCoinSpace.length; i++) {
-    let cell = tdCsCoinSpace[i]; // the cell currently worked on
+function loadGame(tdLocation, localstrName) { // String, Nodelist
+  if (localStorage.getItem(localstrName) != null && localStorage.getItem(localstrName) != "") { // Exists, so load
+    var saveDataIn = localStorage.getItem(localstrName);
+    saveDataIn = saveDataIn.substring(0, saveDataIn.length-1);
+    saveDataIn = saveDataIn.split(",");
 
-    clearCell(cell);
-  }
-
-  heldCoin = null;
-  heldCoinTd = null;
-  coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
+      for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
+        let type = tdLocation[parseInt(saveDataIn[i])].dataset.type = saveDataIn[i+1]; // Set type
+        let count = tdLocation[parseInt(saveDataIn[i])].dataset.count = saveDataIn[i+2]; // Set count
+        var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
+        tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
+        tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
+        console.log(addingCoin.toString()); //See what loaded
+        i += 2;
+      }
+      returningPlayer = true; // They are a returning player (stops auto coins from spawning)
+    }
 }
 
-saveBtn.addEventListener("click", saveGame); // Child wants to save game
-loadBtn.addEventListener("click", loadGame); // Child wants to load game
+function autoLoad() { // Add more calls when new data needs to be autoLoaded
+  if (typeof(Storage) !== "undefined") { // Is localStorage supported?
+    loadGame(tdCoinSpace, "gameBoard"); // Load gameboard data
+    loadGame(tdCsCoinSpace, "custBoard"); // Load custboard data
+
+  } // Else data will never load + no alert rn
+}
+function autosave() { // Add more calls when new data needs to be autoSaved
+  if (typeof(Storage) !== "undefined") { // Is localStorage supported?
+    // Yes... time to autosave
+    saveGame(tdCoinSpace, "gameBoard"); // Save gameboard data
+    saveGame(tdCsCoinSpace, "custBoard"); // Save customerBoard data
+  } // Else data will never save + no alert rn
+}
+
+window.addEventListener("load", autoLoad);
+document.body.addEventListener("click", autosave);
+
+
+// Won't need again unless returning to save and load buttons
+// TODO: Delete commented code below if never reverting back
+// function clearCustBoard() {
+//   // for each td tag on the board, call the clearCell function
+//   for (i = 0; i < tdCsCoinSpace.length; i++) {
+//     let cell = tdCsCoinSpace[i]; // the cell currently worked on
+
+//     clearCell(cell);
+//   }
+
+//   heldCoin = null;
+//   heldCoinTd = null;
+//   coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
+// }
+// saveBtn.addEventListener("click", saveGame); // Child wants to save game
+// loadBtn.addEventListener("click", loadGame); // Child wants to load game
