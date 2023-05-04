@@ -10,6 +10,16 @@ function clearBoard() {
     clearCell(cell);
   }
 
+  // clear customer coin cells as well
+  const custCells = document.getElementsByClassName("tdCsCoinSpace");
+
+  for (i = 0; i < custCells.length; i++) {
+    let cell = custCells[i]; // the cell currently worked on
+
+    clearCell(cell);
+  }
+
+  // clear the held coin too
   heldCoin = null;
   heldCoinTd = null;
   coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
