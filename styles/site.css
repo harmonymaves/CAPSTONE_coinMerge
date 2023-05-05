@@ -39,8 +39,11 @@
   background-color: bisque;
 }
 #shopPopUp {
+  top: 25%;
+  /* height: 520px; */
+  height: 475px;
   visibility: hidden;
-  background-color: tan;
+  background-color: rgb(187, 153, 110);
 }
 .xButtonImg {
   position: absolute;
@@ -71,4 +74,20 @@
 }
 #loadBtn:hover,#saveBtn:hover {
 cursor: pointer;
+}
+.shopTR {
+  background-color: rgb(174, 141, 103);
+}
+.shopTD {
+  position: relative;
+  background-color: rgb(176, 137, 87);
+}
+.shopTD img {
+  width: 75px;
+  height: 75px;
+}
+.locked, .unlocked {
+  position: absolute;
+  top: 20px;
+  right: 23px;
 }
