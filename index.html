@@ -84,7 +84,7 @@
     </table>
 
     <button id="resetBtn">Reset Game</button>
-    <img src="images/coinJar.png" alt="Add Change" id="coinBtn">
+    <img src="images/coinJar.png" alt="Add Change" id="coinBtn" class="defaultJar">
     <button id="shopBtn">Open the Shop!</button> 
     <button id="loadnSaveBtn">Load/Save Game</button>
 
@@ -99,20 +99,20 @@
       <table>
         <tr class="shopTR">
           <th>Candy Shop Backgrounds</th>
-          <td id="color1" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/color1.png"></td>
-          <td id="color2" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/color2.png"></td>
-          <td id="color3" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/color3.png"></td>
+          <td id="color1" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/color1.png"></td>
+          <td id="color2" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/color2.png"></td>
+          <td id="color3" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/color3.png"></td>
         </tr>
         <tr class="shopTR">
           <th>Coin Jar Designs</th>
-          <td id="coinJar1" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/coinJar1.png"></td>
-          <td id="coinJar2" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/coinJar2.png"></td>
-          <td id="coinJar3" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/coinJar3.png"></td>
+          <td id="coinJar1" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/coinJar1.png"></td>
+          <td id="coinJar2" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/coinJar2.png"></td>
+          <td id="coinJar3" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/coinJar3.png"></td>
         </tr>
         <tr class="shopTR">
           <th>Coin Design</th>
-          <td id="comingSoon" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/comingSoon.png"></td>
-          <td id="comingSoon" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/comingSoon.png"></td>
+          <td id="comingSoon" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/comingSoon.png"></td>
+          <td id="comingSoon" class="shopTD">Points: 3<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><button class="shopbtn"></button><img src="images/comingSoon.png"></td>
         </tr>
         <!-- <tr class="shopTR">
           <th>Special Payout</th>
@@ -166,6 +166,7 @@
   <script src="scripts/customer.js"></script>
   <script src="scripts/custCoinCheck.js"></script>
   <script src="scripts/scoreSystem.js"></script>
+  <script src="scripts/shopControl.js"></script>
 
 </body>
 </html>

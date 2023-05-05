@@ -91,3 +91,17 @@ cursor: pointer;
   top: 20px;
   right: 23px;
 }
+.shopTD button {
+  position: absolute;
+  top: 20px;
+  left: 22.5px;
+  width: 75px;
+  height: 75px;
+  opacity: 0;
+  border: none;
+}
+.shopTD button:hover {
+  opacity: 0.3;
+  background-color: #9EDE73;
+  cursor: pointer;
+}
