@@ -1,4 +1,4 @@
-function calculateScore (mergeCounter, coinPile) {
+function calculateScore (totalScore, coinPile) {
   mergeValue = 0;
   this.type = coinPile.type; 
       // depending on the type of coinPile it is being merged INTO assign a score
@@ -20,7 +20,7 @@ function calculateScore (mergeCounter, coinPile) {
         mergeValue = 12;
         break;
     }
-  newScore = mergeCounter + mergeValue;
+  newScore = totalScore + mergeValue;
   console.log("We are trying to update the score from inside the calculate score function!"); // Dev code remove 
   console.log(newScore); // Dev code remove 
   updateScore(newScore);

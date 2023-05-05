@@ -59,6 +59,8 @@ function savePoints() {
 function loadPoints() {
   if(localStorage.getItem("points") != null && localStorage.getItem("points") != "") { // Exists, so load
     scoreArea.innerHTML = parseInt(localStorage.getItem("points"));
+    totalScore = parseInt(localStorage.getItem("points"));
+    updateScore(totalScore);
   }
 }
 

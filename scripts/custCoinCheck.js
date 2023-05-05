@@ -82,12 +82,12 @@ function checkCoins(td) {
     if (totalValue == coinTotal) { //dev amount is 1.25
         // if matching, alert "thanks for the correct change!"
         alert("Thanks for the correct change!");
-        mergeCounter += totalValue;
+        totalScore += totalValue;
         // that customer deletes and adds a new one
         customerRequest();
         clearCustomerBoxes();
         console.log("Updating score from Customer Coin Check");  // Dev code remove 
-        updateScore(mergeCounter);
+        updateScore(totalScore);
     }
 } 
 
