@@ -1,6 +1,8 @@
 var heldCoin; //represents coin being "held" by cursor
 var heldCoinTd; // stores the table cell the coin came from
-var mergeCounter = 0; // incrementing variable for point system first version
+//var mergeCounter = 0; // incrementing variable for point system first version
+var mergeCounter = parseInt(scoreArea.textContent);
+// var weeeee = parseInt(scoreArea.textContent);
 
 // listen for board space to be clicked on by div tags
 let coinBoard = document.getElementById('coinBoard');
