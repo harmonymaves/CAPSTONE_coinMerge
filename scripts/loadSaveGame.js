@@ -8,6 +8,7 @@ const saveBtn = document.getElementById("saveBtn");
 const loadBtn = document.getElementById("loadBtn");
 const loadnSavePopUpClose = document.getElementById("loadnSavePopUp");
 const tdCoinSpace = document.querySelectorAll(".tdCoinSpace");
+//var scoreAreaLC = document.getElementById("scoreArea");
 var returningPlayer = false;
 
 /*
@@ -52,11 +53,27 @@ function loadGame(tdLocation, localstrName) { // String, Nodelist
       returningPlayer = true; // They are a returning player (stops auto coins from spawning)
     }
 }
+function savePoints() {
+  localStorage.setItem("points", String(document.getElementById("scoreArea").textContent));
+}
+function loadPoints() {
+  if(localStorage.getItem("points") != null && localStorage.getItem("points") != "") { // Exists, so load
+    document.getElementById("scoreArea").innerHTML = parseInt(localStorage.getItem("points"));
+    totalScore = parseInt(localStorage.getItem("points"));
+    updateScore(totalScore);
+  }
+  if(localStorage.getItem("points") == "NaN") {
+    document.getElementById("scoreArea").innerHTML = 0;
+    totalScore = 0;
+    updateScore(totalScore);
+  }
+}
 
 function autoLoad() { // Add more calls when new data needs to be autoLoaded
   if (typeof(Storage) !== "undefined") { // Is localStorage supported?
     loadGame(tdCoinSpace, "gameBoard"); // Load gameboard data
     loadGame(tdCsCoinSpace, "custBoard"); // Load custboard data
+    loadPoints(); // Load points data
 
   } // Else data will never load + no alert rn
 }
@@ -65,26 +82,11 @@ function autosave() { // Add more calls when new data needs to be autoSaved
     // Yes... time to autosave
     saveGame(tdCoinSpace, "gameBoard"); // Save gameboard data
     saveGame(tdCsCoinSpace, "custBoard"); // Save customerBoard data
+    savePoints(); // Save points data
+    //console.log("Score Area: " + scoreArea.textContent);
+    //console.log("Score Area WEEEEE: " + weeeee);
   } // Else data will never save + no alert rn
 }
 
 window.addEventListener("load", autoLoad);
 document.body.addEventListener("click", autosave);
-
-
-// Won't need again unless returning to save and load buttons
-// TODO: Delete commented code below if never reverting back
-// function clearCustBoard() {
-//   // for each td tag on the board, call the clearCell function
-//   for (i = 0; i < tdCsCoinSpace.length; i++) {
-//     let cell = tdCsCoinSpace[i]; // the cell currently worked on
-
-//     clearCell(cell);
-//   }
-
-//   heldCoin = null;
-//   heldCoinTd = null;
-//   coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
-// }
-// saveBtn.addEventListener("click", saveGame); // Child wants to save game
-// loadBtn.addEventListener("click", loadGame); // Child wants to load game

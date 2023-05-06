@@ -145,22 +145,11 @@
     <h4>I Have Points, Where Do I Spend Them?</h4>
     <p>Click the shop icon to vist the point shop and make your candy shop cool!</p>
   </span>
-  <!-- Load and Save Section-->
-  <span id="loadnSavePopUp" class="popUpClass" style="visibility: hidden;">
-    <button id="xBtnLoadnSave" class="xButtonAll" type="button"><img class="xButtonImg" src="images/xButton.png"></button>
-    <h1>Load and Save</h1>
-    <p>What would you like to do?</p>
-    <p style="text-align: left;"><strong style="background-color: yellow;">Load Game:</strong> Just got back on the game and I want my game progress that I saved.</p>
-    <p style="text-align: left;"><strong style="background-color: rgb(89, 177, 89);">Save Game:</strong> Finished playing for the day, I want my game progress to be here for when I come back.</p>
-    <button id="loadBtn" style="background-color: yellow;padding: 7px;margin-right: 10%;">Load</button>
-    <button id="saveBtn" style="background-color: rgb(89, 177, 89);padding: 7px;margin-left: 10%;">Save</button>
-    <p style="color: rgb(173, 47, 47);"><i>If "save" button is clicked, previous data in load will be deleted. If "load" button is clicked, the current board will be deleted.</i></p>
-  </span>
+  <script src="scripts/loadSaveGame.js"></script> <!-- loadsavegame must always be above coinJarAddCoins-->
   <script src="scripts/moveCoin.js"></script>
   <script src="scripts/popUpEvents.js"></script>
   <script src="scripts/coinPile.js"></script>
   <script src="scripts/coinProperties.js"></script>
-  <script src="scripts/loadSaveGame.js"></script> <!-- loadsavegame must always be above coinJarAddCoins-->
   <script src="scripts/coinJarAddCoins.js"></script>
   <script src="scripts/resetButton.js"></script>
   <script src="scripts/customer.js"></script>
