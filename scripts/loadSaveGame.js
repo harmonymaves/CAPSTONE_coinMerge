@@ -8,7 +8,7 @@ const saveBtn = document.getElementById("saveBtn");
 const loadBtn = document.getElementById("loadBtn");
 const loadnSavePopUpClose = document.getElementById("loadnSavePopUp");
 const tdCoinSpace = document.querySelectorAll(".tdCoinSpace");
-const scoreArea = document.getElementById("scoreArea");
+//var scoreAreaLC = document.getElementById("scoreArea");
 var returningPlayer = false;
 
 /*
@@ -54,11 +54,11 @@ function loadGame(tdLocation, localstrName) { // String, Nodelist
     }
 }
 function savePoints() {
-  localStorage.setItem("points", String(scoreArea.textContent));
+  localStorage.setItem("points", String(document.getElementById("scoreArea").textContent));
 }
 function loadPoints() {
   if(localStorage.getItem("points") != null && localStorage.getItem("points") != "") { // Exists, so load
-    scoreArea.innerHTML = parseInt(localStorage.getItem("points"));
+    document.getElementById("scoreArea").innerHTML = parseInt(localStorage.getItem("points"));
     totalScore = parseInt(localStorage.getItem("points"));
     updateScore(totalScore);
   }
