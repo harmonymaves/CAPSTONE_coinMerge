@@ -41,6 +41,9 @@
     height: 80px;
     margin-top: 0.2em;
 }
+#coinBtn:hover {
+    cursor: pointer;
+}
 
 .penny {
     width: 20px;
