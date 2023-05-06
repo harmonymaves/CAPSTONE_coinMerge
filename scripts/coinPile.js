@@ -60,7 +60,6 @@ class coinPile {
         this.type = "quarter";
         return true;
       } else {
-        console.log('Types don\'t match.'); // TODO REMOVE THIS LOG
         return false;
       }
 

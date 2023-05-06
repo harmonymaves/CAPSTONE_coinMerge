@@ -18,8 +18,6 @@ function coinClicked(td) {
 
             img.className = "noCoin"; // pulls coin from view while in heldCoin
 
-            console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
-
             // adds custom cursor to represent dragging coin
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
             customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
@@ -79,8 +77,6 @@ function coinClicked(td) {
             // reset the variables for holding coins
             heldCoin = null;
             heldCoinTd = null;
-
-            console.log("Placed coin"); // for debug, TODO: remove for production
         }
     }
 }
