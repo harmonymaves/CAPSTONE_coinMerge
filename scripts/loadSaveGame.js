@@ -2,8 +2,8 @@
 //
 // gameBoard -> save gameboard layout
 // custBoard -> save custboard layout
-// points -> their total points ||| Coming soon
-// items -> items they own in shop ||| Coming soon
+// points -> their total points
+// shopItems -> items they own in shop
 const saveBtn = document.getElementById("saveBtn");
 const loadBtn = document.getElementById("loadBtn");
 const loadnSavePopUpClose = document.getElementById("loadnSavePopUp");
@@ -68,12 +68,57 @@ function loadPoints() {
     updateScore(totalScore);
   }
 }
+function saveShopItems() {
+  var saveDataIn = "";
+  var shopTD = document.querySelectorAll(".shopTD");
+   shopTD.forEach(function(currentValue, currentIndex) { // For the shop
+    // Sadly have to do long way to check class, text in shopTD counts as childern :(
+    if(currentValue.lastChild.previousSibling.previousSibling.className != "locked" && currentValue.lastChild.previousSibling.previousSibling.className != undefined) { // Something is there, save the data
+      saveDataIn = saveDataIn.concat(String(currentIndex), ",");
+    }
+  });
+  if(saveDataIn != "") {
+    console.log("Shop Items Saved: " + saveDataIn.split(",")); // View of what was added
+    localStorage.setItem("shopItems", saveDataIn);
+  }
+}
+
+function loadShopItems() {
+  if (localStorage.getItem("shopItems") != null && localStorage.getItem("shopItems") != "") { // Exists, so load
+    var shopTD = document.querySelectorAll(".shopTD");
+    var saveDataIn = localStorage.getItem("shopItems");
+    saveDataIn = saveDataIn.substring(0, saveDataIn.length-1);
+    saveDataIn = saveDataIn.split(",");
+
+    for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
+      shopTD[parseInt(saveDataIn[i])].lastChild.previousSibling.previousSibling.className = "unlocked";
+      shopTD[parseInt(saveDataIn[i])].lastChild.previousSibling.previousSibling.setAttribute("src", "images/unlock.png");
+    }
+    console.log("Store Items Are Restored: " + saveDataIn);
+  }
+  // if (localStorage.getItem(localstrName) != null && localStorage.getItem(localstrName) != "") { // Exists, so load
+  //   var saveDataIn = localStorage.getItem(localstrName);
+  //   saveDataIn = saveDataIn.substring(0, saveDataIn.length-1);
+  //   saveDataIn = saveDataIn.split(",");
+
+  //     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
+  //       let type = tdLocation[parseInt(saveDataIn[i])].dataset.type = saveDataIn[i+1]; // Set type
+  //       let count = tdLocation[parseInt(saveDataIn[i])].dataset.count = saveDataIn[i+2]; // Set count
+  //       var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
+  //       tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
+  //       tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
+  //       console.log(addingCoin.toString()); //See what loaded
+  //       i += 2;
+  //     }
+  //   }
+}
 
 function autoLoad() { // Add more calls when new data needs to be autoLoaded
   if (typeof(Storage) !== "undefined") { // Is localStorage supported?
     loadGame(tdCoinSpace, "gameBoard"); // Load gameboard data
     loadGame(tdCsCoinSpace, "custBoard"); // Load custboard data
     loadPoints(); // Load points data
+    loadShopItems(); // Load unlocked items
 
   } // Else data will never load + no alert rn
 }
@@ -83,8 +128,7 @@ function autosave() { // Add more calls when new data needs to be autoSaved
     saveGame(tdCoinSpace, "gameBoard"); // Save gameboard data
     saveGame(tdCsCoinSpace, "custBoard"); // Save customerBoard data
     savePoints(); // Save points data
-    //console.log("Score Area: " + scoreArea.textContent);
-    //console.log("Score Area WEEEEE: " + weeeee);
+    saveShopItems(); // Save unlocked items
   } // Else data will never save + no alert rn
 }
 
