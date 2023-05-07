@@ -46,7 +46,7 @@ function populateEmptySpace() {
     }
 
   } else {
-    console.log("There's no more room!")
+    console.log("There's no more room!") //TODO: update to an alert?
 
   } // end if emptyCells is > 0
 

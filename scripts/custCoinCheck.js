@@ -14,8 +14,6 @@ function coinToCustomer(td) {
 
             img.className = "noCoin"; // pulls coin from view while in heldCoin
 
-            console.log("Currently holding coin: " + heldCoin); // for debug, TODO: remove for production
-
             // adds custom cursor to represent dragging coin
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
             customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
@@ -52,8 +50,6 @@ function coinToCustomer(td) {
             // reset the variables for holding coins
             heldCoin = null;
             heldCoinTd = null;
-
-            console.log("Placed coin"); // for debug, TODO: remove for production
         }
     }
 
@@ -73,10 +69,8 @@ function checkCoins(td) {
     let pile1 = pile1Object.getValue();
     let pile2 = pile2Object.getValue();
     let pile3 = pile3Object.getValue();
-    console.log("p1:" + pile1 + " p2:" + pile2 + " p3:" + pile3)
 
     let totalValue = pile1 + pile2 + pile3;
-    console.log(totalValue)
     
     // and check against requested amount
     if (totalValue == coinTotal) { //dev amount is 1.25
