@@ -1,3 +1,7 @@
+body { 
+  background-color: #9FDF74;
+}
+
 .popUpClass {
   position: fixed;
   width: 500px;
@@ -20,6 +24,14 @@
   height: 310px;
   visibility: visible;
   background-color: #9EDE73;
+  box-shadow: 0px 1px 10px black;
+}
+#scoreArea{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  background-color: #F7EB00;
+  width: 207px;
+  margin-top: 2px;
+  margin-bottom: auto;
 }
 #titleTag {
   margin-bottom: -5px;
