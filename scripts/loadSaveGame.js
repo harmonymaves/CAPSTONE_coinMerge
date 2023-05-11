@@ -44,7 +44,7 @@ function loadGame(tdLocation, localstrName) { // String, Nodelist
       for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
         let type = tdLocation[parseInt(saveDataIn[i])].dataset.type = saveDataIn[i+1]; // Set type
         let count = tdLocation[parseInt(saveDataIn[i])].dataset.count = saveDataIn[i+2]; // Set count
-        var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
+        var addingCoin = new CoinPile(type, count); // Make the coin apart of the CoinPile class
         tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
         tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
         console.log(addingCoin.toString()); //See what loaded
@@ -104,7 +104,7 @@ function loadShopItems() {
   //     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
   //       let type = tdLocation[parseInt(saveDataIn[i])].dataset.type = saveDataIn[i+1]; // Set type
   //       let count = tdLocation[parseInt(saveDataIn[i])].dataset.count = saveDataIn[i+2]; // Set count
-  //       var addingCoin = new coinPile(type, count); // Make the coin apart of the coinPile class
+  //       var addingCoin = new CoinPile(type, count); // Make the coin apart of the CoinPile class
   //       tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
   //       tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
   //       console.log(addingCoin.toString()); //See what loaded

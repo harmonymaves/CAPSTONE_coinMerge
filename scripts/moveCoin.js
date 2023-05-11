@@ -13,7 +13,7 @@ function coinClicked(td) {
 
             // save the coin clicked on into a var, as well as td in case coin needs to be
             // sent back to original square
-            heldCoin = new coinPile(td.dataset.type, td.dataset.count); //make new coinPile, use td data
+            heldCoin = new CoinPile(td.dataset.type, td.dataset.count); //make new CoinPile, use td data
             heldCoinTd = td; // saves for later in case move fails
 
             img.className = "noCoin"; // pulls coin from view while in heldCoin
@@ -26,8 +26,8 @@ function coinClicked(td) {
 
             console.log('merge entered');
             
-            // make a coinPile instance using the td clicked
-            clickedCoin = new coinPile(td.dataset.type, td.dataset.count);
+            // make a CoinPile instance using the td clicked
+            clickedCoin = new CoinPile(td.dataset.type, td.dataset.count);
 
             // if merge succeeds, update the image, clear the data from
             // the heldCoin and heldCoin's original td, as well as the heldCoinTd
