@@ -21,6 +21,7 @@ function coinToCustomer(td) {
             // make a coinPile instance using the td clicked
             clickedCoin = new coinPile(td.dataset.type, td.dataset.count);
 
+            playSound("deny");
             // don't even check for a merge, just put it back where it came from
             heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
             console.log("Merge failure...");
@@ -50,10 +51,11 @@ function coinToCustomer(td) {
             // reset the variables for holding coins
             heldCoin = null;
             heldCoinTd = null;
+            playSound("place");
         }
     }
 
-   checkCoins()
+   checkCoins();
 
 }
 
@@ -75,7 +77,8 @@ function checkCoins(td) {
     // and check against requested amount
     if (totalValue == coinTotal) { //dev amount is 1.25
         // if matching, alert "thanks for the correct change!"
-        alert("Thanks for the correct change!");
+        playSound("success");
+        // alert("Thanks for the correct change!");
         totalScore += totalValue;
         // that customer deletes and adds a new one
         customerRequest();

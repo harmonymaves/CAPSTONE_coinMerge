@@ -50,6 +50,7 @@ function coinClicked(td) {
             } else { // failure
                 heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
                 console.log("Merge failure...");
+                playSound("deny");
             }
 
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
@@ -77,6 +78,8 @@ function coinClicked(td) {
             // reset the variables for holding coins
             heldCoin = null;
             heldCoinTd = null;
+
+            playSound("place");
         }
     }
 }
@@ -90,22 +93,3 @@ for (i = 0; i < allCells.length; i++) {
         coinClicked(cell);
     });
 }
-
-function eraseCoin(img) {
-coinJar.removeEventListener('click', populateEmptySpace);
-coinBoard.style = `cursor: auto;`; 
-customerCoins.style = `cursor: auto;`;
-heldCoin = null; 
-heldCoinTd = null;
-}
-
-// Grabbing the coinBtn element
-coinJar = document.getElementById("coinBtn");
-// Adding onClick event to the coinBtn
-coinJar.addEventListener("click", 
-// Using an if to see if the event listener for creating coins needs to be turned off
-function() {if (heldCoin != null) {
-    eraseCoin(coinJar);
-} // Making sure the event listener is being applied after erasing the coin
-document.getElementById("coinBtn").addEventListener("click", populateEmptySpace);
-});

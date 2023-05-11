@@ -44,13 +44,21 @@ function populateEmptySpace() {
       cellToChange.dataset.type = "penny";
       cellToChange.dataset.count = 1;
     }
-
+    playSound("jarSpawn");
   } else {
     console.log("There's no more room!") //TODO: update to an alert?
 
   } // end if emptyCells is > 0
 
 } // end populateEmptySpace function
+
+function eraseCoin() {
+  coinBoard.style = `cursor: auto;`; 
+  customerCoins.style = `cursor: auto;`;
+  heldCoin = null; 
+  heldCoinTd = null;
+  playSound("jarDrop");
+} // end eraseCoin
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * max + min);
@@ -63,4 +71,11 @@ function returningPlayerChecker() {
 }
 
 window.addEventListener("load", returningPlayerChecker);
-document.getElementById("coinBtn").addEventListener("click", populateEmptySpace);
+document.getElementById("coinBtn").addEventListener("click", function() {
+  if (heldCoin != null) {
+    // a coin is held, delete it
+    eraseCoin();
+  } else {
+    populateEmptySpace();
+  }
+});
