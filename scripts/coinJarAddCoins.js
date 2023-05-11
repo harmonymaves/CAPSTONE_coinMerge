@@ -18,10 +18,13 @@ function populateEmptySpace() {
 
   const emptyCells = getEmptyCells();
 
+  console.log(emptyCells);
+
   // only do the rest if number of empty cells is >0
   if (emptyCells.length > 0) {
 
     let numberOfCellsToPopulate = randomInt(1, 3);
+    console.log(numberOfCellsToPopulate);
 
     // if the number of empty cells is <3, generate a number 1 to that number.
     // otherwise generate a number 1-3.
@@ -37,12 +40,36 @@ function populateEmptySpace() {
     // changing the class will also update the CSS to actually display the image.
 
     for (i = 0; i < numberOfCellsToPopulate; i++) {
-      let cellToChange = emptyCells[randomInt(0, emptyCells.length)];
+      let cellToChange = emptyCells[randomInt(0, emptyCells.length - 1)];
       let imgToChange = cellToChange.firstChild;
-      imgToChange.src = "images/penny1.png";
+
+      // Generate random number 0-99 (100 outcomes)
+      // 75% 1-2 penny
+      // 15% 3-4 penny
+      // 8% 1 nickel
+      // 1% 1 dime
+      // 1% 2 dimes
+      let random = randomInt(0, 99);
+      let coinToPlace = new CoinPile("penny", 1);
+      console.log('place coins');
+      if (random <= 74) {
+        coinToPlace.type = "penny";
+        coinToPlace.count = randomInt(1,2);
+      } else if (random <= 89) {
+        coinToPlace.type = "penny";
+        coinToPlace.count = randomInt(3,4);
+      } else if (random <= 97) {
+        coinToPlace.type = "nickel";
+        coinToPlace.count = 1;
+      } else {
+        coinToPlace.type = "dime";
+        coinToPlace.count = randomInt(1,2);
+      }
+
+      imgToChange.src = `images/${coinToPlace.getImageName()}`;
       imgToChange.className = "coin";
-      cellToChange.dataset.type = "penny";
-      cellToChange.dataset.count = 1;
+      cellToChange.dataset.type = coinToPlace.type;
+      cellToChange.dataset.count = coinToPlace.count;
     }
     playSound("jarSpawn");
   } else {
@@ -61,7 +88,9 @@ function eraseCoin() {
 } // end eraseCoin
 
 function randomInt(min, max) {
-  return Math.floor(Math.random() * max + min);
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function returningPlayerChecker() {
@@ -72,10 +101,13 @@ function returningPlayerChecker() {
 
 window.addEventListener("load", returningPlayerChecker);
 document.getElementById("coinBtn").addEventListener("click", function() {
+  console.log('clicked');
   if (heldCoin != null) {
+    console.log('held');
     // a coin is held, delete it
     eraseCoin();
   } else {
+    console.log('no held');
     populateEmptySpace();
   }
 });
