@@ -58,6 +58,7 @@ class coinPile {
       if ((this.type == "dime" && this.count == 2 && coinToMerge.type == "nickel" && coinToMerge.count == 1) || (coinToMerge.type == "dime" && coinToMerge.count == 2 && this.type == "nickel" && this.count == 1)){
         this.count = 1;
         this.type = "quarter";
+        playSound("merge");
         return true;
       } else {
         return false;
@@ -109,24 +110,36 @@ class coinPile {
         if (this.count == 5) {
           this.count = 1;
           this.type = "nickel";
+          playSound("merge");
+        } else {
+          playSound("place");
         }
         break;
       case "nickel":
         if (this.count == 2) {
           this.count = 1;
-          this.type = "dime"
+          this.type = "dime";
+          playSound("merge");
+        } else {
+          playSound("place");
         }
         break;
       case "dime":
         if (this.count == 5) {
           this.count = 2;
           this.type = "quarter";
+          playSound("merge");
+        } else {
+          playSound("place");
         }
         break;
       case "quarter":
         if (this.count == 4) {
           this.count = 1;
           this.type = "dollar";
+          playSound("dollar");
+        } else {
+          playSound("place");
         }
         break;
       default:
