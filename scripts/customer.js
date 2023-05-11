@@ -1,7 +1,7 @@
 // This file will generate a request for the player to fulfill
 
-// create a new coinPile object so we can fill the data
-newCoinPile = new coinPile("", 0)
+// create a new CoinPile object so we can fill the data
+newCoinPile = new CoinPile("", 0)
 
 function coinRequest() {
 
@@ -45,14 +45,14 @@ function customerRequest() {
   coinTotal = 0;
 
 
-  coinPile1 = coinRequest();
-  coinTotal += coinPile1.getValue()
+  CoinPile1 = coinRequest();
+  coinTotal += CoinPile1.getValue()
   
-  coinPile2 = coinRequest();
-  coinTotal += coinPile2.getValue()
+  CoinPile2 = coinRequest();
+  coinTotal += CoinPile2.getValue()
 
-  coinPile3 = coinRequest();
-  coinTotal += coinPile3.getValue()
+  CoinPile3 = coinRequest();
+  coinTotal += CoinPile3.getValue()
 
   csReqest.innerText = "Hi! I need: \n" + (coinTotal / 100).toFixed(2) + "\n in change please!";
   

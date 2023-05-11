@@ -1,7 +1,7 @@
-function calculateScore (totalScore, coinPile) {
+function calculateScore (totalScore, CoinPile) {
   mergeValue = 0;
-  this.type = coinPile.type; 
-      // depending on the type of coinPile it is being merged INTO assign a score
+  this.type = CoinPile.type; 
+      // depending on the type of CoinPile it is being merged INTO assign a score
       // i.e. a merge of 2 nickels will be awarded the value of dime
     switch (this.type) { 
       case "penny": 

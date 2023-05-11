@@ -9,7 +9,7 @@ function coinToCustomer(td) {
 
             // save the coin clicked on into a var, as well as td in case coin needs to be
             // sent back to original square
-            heldCoin = new coinPile(td.dataset.type, td.dataset.count); //make new coinPile, use td data
+            heldCoin = new CoinPile(td.dataset.type, td.dataset.count); //make new CoinPile, use td data
             heldCoinTd = td; // saves for later in case move fails
 
             img.className = "noCoin"; // pulls coin from view while in heldCoin
@@ -18,8 +18,8 @@ function coinToCustomer(td) {
             coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
             customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
         } else {
-            // make a coinPile instance using the td clicked
-            clickedCoin = new coinPile(td.dataset.type, td.dataset.count);
+            // make a CoinPile instance using the td clicked
+            clickedCoin = new CoinPile(td.dataset.type, td.dataset.count);
 
             playSound("deny");
             // don't even check for a merge, just put it back where it came from
@@ -64,9 +64,9 @@ const tdCsCoinSpace = document.querySelectorAll(".tdCsCoinSpace");
 function checkCoins(td) {
 
     // total all three coin spaces
-    let pile1Object = new coinPile(tdCsCoinSpace[0].dataset.type, tdCsCoinSpace[0].dataset.count);
-    let pile2Object = new coinPile(tdCsCoinSpace[1].dataset.type, tdCsCoinSpace[1].dataset.count);
-    let pile3Object = new coinPile(tdCsCoinSpace[2].dataset.type, tdCsCoinSpace[2].dataset.count);
+    let pile1Object = new CoinPile(tdCsCoinSpace[0].dataset.type, tdCsCoinSpace[0].dataset.count);
+    let pile2Object = new CoinPile(tdCsCoinSpace[1].dataset.type, tdCsCoinSpace[1].dataset.count);
+    let pile3Object = new CoinPile(tdCsCoinSpace[2].dataset.type, tdCsCoinSpace[2].dataset.count);
         
     let pile1 = pile1Object.getValue();
     let pile2 = pile2Object.getValue();

@@ -4,7 +4,7 @@
 // Every pile on the board will have an instance of this object associated with it
 //
 
-class coinPile {
+class CoinPile {
   type; // string value, penny nickel dime quarter dollar
   count; // integer value, the number of coins in the pile
 
@@ -156,4 +156,4 @@ Value of Pile: ${this.getValue()}`;
     return stringOutput;
   }
 
-} // end coinPile class
+} // end CoinPile class
