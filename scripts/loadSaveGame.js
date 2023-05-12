@@ -128,6 +128,7 @@ function autoLoad() { // Add more calls when new data needs to be autoLoaded
     loadGame(tdCsCoinSpace, "custBoard"); // Load custboard data
     loadPoints(); // Load points data
     loadShopItems(); // Load unlocked items
+    document.body.setAttribute('style', 'visibility: visibile');
 
   } // Else data will never load + no alert rn
 }
