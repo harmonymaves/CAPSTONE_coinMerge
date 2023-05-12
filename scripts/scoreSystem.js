@@ -11,13 +11,13 @@ function calculateScore (totalScore, CoinPile) {
         mergeValue = 2;
         break;
       case "dime": 
-        mergeValue = 4;
+        mergeValue = 3;
         break;
       case "quarter": 
-        mergeValue = 8;
+        mergeValue = 4;
         break;
       case "dollar": 
-        mergeValue = 12;
+        mergeValue = 5;
         break;
     }
   newScore = totalScore + mergeValue;

@@ -1,0 +1,14 @@
+Debrief - Iteration (Week of May 1-8th)
+Mckenna Aldach, Davin Haley, Valkyrie Maves, Dexter Peterson
+
+This week, our team was able to focus on minor bugs and polishing our game.  We feel that our strong communication
+and collaboration as a team is helpful in preventing problems by each of us pulling from main after each PR to 
+avoid any merge conflicts, or two people writing the same code when we could manage our time better by working on 
+different items.  We are also proud that our game, Coin Merge, is playable and that we are at the point where we 
+are making the game more efficient and enticing to play.  We were also able to all finish our tasks early in the 
+week, allowing us time to work ahead or to better enhance those game features.
+
+Much of our feedback this week was very detail oriented, so focusing on details is a good goal for all of us this 
+week.  Continuing to check each other's pull requests will help us with those details.  We'll also want to make 
+sure we are all on the same page with our final design aspects, to make certain our individual designs continue to 
+fit an overall theme, and preventing the game from looking a little too "DIY."
