@@ -8,148 +8,137 @@
   <link rel="stylesheet" type="text/css" href="styles/devCoins.css">
   <title>Capstone Coin Merge</title>
 </head>
-<body style="visibility: hidden;">
-  <h1 id="titleTag">Coin Merge</h1>
-  <p id="slogan">Learn while having fun!</p>
-  <!--Welcome Setup-->
-  <span id="welcomePopUp" class="popUpClass">
-    <h1>Welcome To Coin Merge!</h1>
-    <ul>
-      <li>Click the jar for change</li>
-      <li>Merge same coins to make a stack</li>
-      <li>Merge coins to make higher value coins</li>
-      <li>Give customers correct change</li>
-      <li>Earn points from helping customers</li>
-      <li>Upgrade your candy shop</li>
-      <li>Learn while having fun!</li>
-    </ul>
-    <p style="margin: 10px 0px;">Ready to run your own candy shop?</p>
-    <button id="startGameBtn">Let's Go!</button>
-  </span>
-  <!--Customer Section-->
-  <div id="customerWrapper">
-    <div id="customerArea"><img src="images/devCustomer.png" alt="This is a placeholder image that will hold images of customers">
-      <div id="customerRequest">
+<body style="visibility: hidden;"> <!--Whole Game Section-->
+  <div id="entireBoard"> <!--Welcome Section-->
+    <span id="welcomeSpan">
+      <h1>Welcome To Coin Merge!</h1>
+      <ul>
+        <li>Click the jar for change</li>
+        <li>Merge same coins to make a stack</li>
+        <li>Merge coins to make higher value coins</li>
+        <li>Give customers correct change</li>
+        <li>Earn points from helping customers</li>
+        <li>Upgrade your candy shop</li>
+        <li>Learn while having fun!</li>
+      </ul>
+      <p style="margin: 10px 0px;">Ready to run your own candy shop?</p>
+      <p><strong>You got this!</strong></p>
+      <!--Shop Section-->
+      <!--Suggestion: Set button image to open shop to 1 of the edges of the screen-->
+      <div id="shopSpan">
+        <h1>Welcome To The Shop!</h1>
+        <div>
+          <p>Got some points to spend? Came to the right place!</p>
+          <table>
+            <tr class="shopTR">
+              <th>Candy Shop Backgrounds</th>
+              <td id="color2" class="shopTD">Points: 100<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color2.png"></td>
+              <td id="color3" class="shopTD">Points: 300<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color3.png"></td>
+              <td id="color1" class="shopTD">Points: 700<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color1.png"></td>
+            </tr>
+            <tr class="shopTR">
+              <th>Coin Jar Designs</th>
+              <td id="coinJar1" class="shopTD">Points: 100<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar1.png"></td>
+              <td id="coinJar2" class="shopTD">Points: 350<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar2.png"></td>
+              <td id="coinJar3" class="shopTD">Points: 750<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar3.png"></td>
+            </tr>
+            <tr class="shopTR">
+              <th>Coin Design</th>
+              <td id="comingSoon" class="shopTD">Points: 300<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/comingSoon.png"></td>
+              <td id="comingSoon" class="shopTD">Points: 1000<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/comingSoon.png"></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="scoreWrapper">
-      <p id="scoreArea">0</h3>
-    </div>
-    <div id ="customerCoinBoard">    
-    <table id="customerCoinPile">
-      <tr class="customerRow">
-        <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile1"></div></td>
-        <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile2"></div></td>
-        <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile3"></div></td>
-      </tr>
-    </table>
-    </div>
-  </div>
-  <!--CoinBoard Section-->  
-  <div id="coinBoard">
-    <table>
-      <tr class="coinRow1">
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-      </tr>
-      <tr class="coinRow2">
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-      </tr>
-      <tr class="coinRow3">
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-      </tr>
-      <tr class="coinRow4">
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-      </tr>
-      <tr class="coinRow5">
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-        <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
-      </tr>
-    </table>
+    </span> <!--Game Board Section-->
+    <div id="gameboardSpan">
+      <!--Customer Section-->
+      <div id="customerWrapper">
+        <div id="customerArea"><img src="images/devCustomer.png" alt="This is a placeholder image that will hold images of customers">
+          <div id="customerRequest">
+          </div>
+        </div>
+        <div class="scoreWrapper">
+          <p id="scoreArea">0</h3>
+        </div>
+        <div id ="customerCoinBoard">    
+        <table id="customerCoinPile">
+          <tr class="customerRow">
+            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile1"></div></td>
+            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile2"></div></td>
+            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile3"></div></td>
+          </tr>
+        </table>
+        </div>
+      </div>
+      <!--CoinBoard Section-->  
+      <div id="coinBoard">
+        <table>
+          <tr class="coinRow1">
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+          </tr>
+          <tr class="coinRow2">
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+          </tr>
+          <tr class="coinRow3">
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+          </tr>
+          <tr class="coinRow4">
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+          </tr>
+          <tr class="coinRow5">
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+            <td class="tdCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"></td>
+          </tr>
+        </table>
 
-    <button id="resetBtn">Reset Coins</button>
-    <img src="images/coinJar.png" alt="Add Change" id="coinBtn" class="defaultJar">
-    <button id="shopBtn">Open the Shop!</button> 
-
+        <button id="resetBtn">Reset Coins</button>
+        <img src="images/coinJar.png" alt="Add Change" id="coinBtn" class="defaultJar">
+      </div>
+    </div> <!--Help Section-->
+    <span id="helpSectionSpan">
+        <h1>How To Play</h1>
+        <h4>Game Process</h4>
+        <ul>
+          <li>Click the jar for change</li>
+          <li>Merge same coins to make a stack</li>
+          <li>Merge coins to make higher value coins</li>
+          <li>Give customers correct change</li>
+          <li>Earn points from helping customers</li>
+          <li>Upgrade your candy shop</li>
+          <li>Learn while having fun!</li>
+        </ul>
+        <h4>Coins to Merge</h4>
+        <p><i>Info coming soon</i></p>
+        <h4>Board is Full, Now What?</h4>
+        <p>Click an unwanted coin back into the coin jar OR click the 'Reset Coins' 
+          button to fully clear all coins off the boards</p>
+        <h4>I Have Points, Where Do I Spend Them?</h4>
+        <p>Click the "Open the Shop!" button to vist the point shop and make your candy shop cool!</p>
+    </span>
   </div>
-  <!--Shop Section-->
-  <!--Suggestion: Set button image to open shop to 1 of the edges of the screen-->
-  <span id="shopPopUp" class="popUpClass" style="visibility: hidden;">
-    <button id="xBtnShop" class="xButtonAll" type="button"><img class="xButtonImg" src="images/xButton.png"></button>
-    <h1>Welcome To The Shop!</h1>
-    <div>
-      <p>Got some points to spend? Came to the right place!</p>
-      <table>
-        <tr class="shopTR">
-          <th>Candy Shop Backgrounds</th>
-          <td id="color2" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color2.png"></td>
-          <td id="color3" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color3.png"></td>
-          <td id="color1" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/color1.png"></td>
-        </tr>
-        <tr class="shopTR">
-          <th>Coin Jar Designs</th>
-          <td id="coinJar1" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar1.png"></td>
-          <td id="coinJar2" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar2.png"></td>
-          <td id="coinJar3" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/coinJar3.png"></td>
-        </tr>
-        <tr class="shopTR">
-          <th>Coin Design</th>
-          <td id="comingSoon" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/comingSoon.png"></td>
-          <td id="comingSoon" class="shopTD">Points: 3<button class="shopbtn"><span class="locked">Buy Me</span></button><img src="images/comingSoon.png"></td>
-        </tr>
-        <!-- <tr class="shopTR">
-          <th>Special Payout</th>
-          <td id="rebirth" class="shopTD">Points: #####<img class="locked" style="width: 25px; height: 25px;" src="images/lock.png"><img src="images/rebirth.png"></td>
-        </tr>
-        -->
-      </table>
-    </div>
-  </span>
-  <!--Help Section-->
-  <button id="helpBtn"><img id="helpBtnImg" src="images/helpButton.png"></button>
-  <span id="helpPopUp" class="popUpClass" style="visibility: hidden;">
-    <button id="xBtnHelp" class="xButtonAll" type="button"><img class="xButtonImg" src="images/xButton.png"></button>
-    <h1>How To Play</h1>
-    <h4>Game Process</h4>
-    <ul>
-      <li>Click the jar for change</li>
-      <li>Merge same coins to make a stack</li>
-      <li>Merge coins to make higher value coins</li>
-      <li>Give customers correct change</li>
-      <li>Earn points from helping customers</li>
-      <li>Upgrade your candy shop</li>
-      <li>Learn while having fun!</li>
-    </ul>
-    <h4>Coins to Merge</h4>
-    <p><i>Info coming soon</i></p>
-    <h4>Board is Full, Now What?</h4>
-    <p>Drag an unwanted coin back into the coin jar OR click the 'reset game' 
-      button to fully clear the board</p>
-    <h4>I Have Points, Where Do I Spend Them?</h4>
-    <p>Click the shop icon to vist the point shop and make your candy shop cool!</p>
-  </span>
   <script src="scripts/preload.js"></script>
   <script src="scripts/loadSaveGame.js"></script> <!-- loadsavegame must always be above coinJarAddCoins-->
   <script src="scripts/moveCoin.js"></script>
-  <script src="scripts/popUpEvents.js"></script>
   <script src="scripts/coinPile.js"></script>
   <script src="scripts/coinProperties.js"></script>
   <script src="scripts/coinJarAddCoins.js"></script>
