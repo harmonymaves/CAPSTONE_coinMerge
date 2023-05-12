@@ -73,8 +73,12 @@ function saveShopItems() {
   var shopTD = document.querySelectorAll(".shopTD");
    shopTD.forEach(function(currentValue, currentIndex) { // For the shop
     // Sadly have to do long way to check class, text in shopTD counts as childern :(
-    if(currentValue.lastChild.previousSibling.previousSibling.className != "locked" && currentValue.lastChild.previousSibling.previousSibling.className != undefined) { // Something is there, save the data
-      saveDataIn = saveDataIn.concat(String(currentIndex), ",");
+    if((currentValue.lastChild.previousSibling.firstChild.className != "locked" && currentValue.lastChild.previousSibling.firstChild.className!= undefined) 
+    && (currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equip Me" || currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equipped")) { // Something is there, save the data
+      saveDataIn = saveDataIn.concat(String(currentIndex), ":");
+      saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.className), ":");
+      saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.innerHTML), ",");
+      console.log("Shop Items Saved: " + saveDataIn.split(","));
     }
   });
   if(saveDataIn != "") {
@@ -91,8 +95,13 @@ function loadShopItems() {
     saveDataIn = saveDataIn.split(",");
 
     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
-      shopTD[parseInt(saveDataIn[i])].lastChild.previousSibling.previousSibling.className = "unlocked";
-      shopTD[parseInt(saveDataIn[i])].lastChild.previousSibling.previousSibling.setAttribute("src", "images/unlock.png");
+      var chopped = saveDataIn[i].split(":");
+      shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = String(chopped[1]);
+      shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = String(chopped[2]);
+      console.log("Added " + chopped[2] + " to location: " + chopped[0] + " with classname: " + chopped[1]);
+      if(chopped[1] == "equipped") {
+        equippingTime(shopTD[parseInt(chopped[0])].lastChild.previousSibling);
+      }
     }
     console.log("Store Items Are Restored: " + saveDataIn);
   }

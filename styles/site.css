@@ -98,25 +98,27 @@ cursor: pointer;
   width: 75px;
   height: 75px;
 }
-.locked, .unlocked {
-  position: absolute;
-  top: 20px;
-  right: 23px;
+.locked {
+  background-color: rgba(79, 182, 42, 0.9);
+}
+.equipped {
+  background-color: rgba(217, 113, 27, 0.9);
 }
 .unlocked {
-  rotate: 20deg;
+  background-color: rgba(217, 192, 27, 0.9);
 }
 .shopTD button {
   position: absolute;
   top: 20px;
-  left: 22.5px;
+  left: 20px;
   width: 75px;
   height: 75px;
-  opacity: 0;
+  opacity: 1;
+  background-color: transparent;
   border: none;
 }
 .shopTD button:hover {
-  opacity: 0.3;
-  background-color: #9EDE73;
+  opacity: 0.9;
+  background-color: #9ede7386;
   cursor: pointer;
 }
