@@ -81,14 +81,29 @@ body {
   position: fixed;
   margin: 5px 5px;
 }
-#loadnSavePopUp {
-  background-color: rgb(197, 197, 53);
-}
-#loadBtn:hover,#saveBtn:hover {
-cursor: pointer;
-}
 .shopTR {
   background-color: rgb(174, 141, 103);
+}
+.shopTR > th {
+  position: relative;
+}
+.shopTR > th * {
+  position: absolute;
+  top: 69%;
+  left: 40%;
+  width: 30px;
+  height: 30px;
+}
+.shopTR > th img {
+  top: 0%;
+  left: 0%;
+}
+.defaultShop {
+  background-color: transparent;
+  border: none;
+}
+.defaultShop:hover {
+  cursor: pointer;
 }
 .shopTD {
   position: relative;
