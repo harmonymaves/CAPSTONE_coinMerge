@@ -96,11 +96,16 @@ function loadShopItems() {
 
     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
       var chopped = saveDataIn[i].split(":");
-      shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = String(chopped[1]);
-      shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = String(chopped[2]);
-      console.log("Added " + chopped[2] + " to location: " + chopped[0] + " with classname: " + chopped[1]);
-      if(chopped[1] == "equipped") {
-        equippingTime(shopTD[parseInt(chopped[0])].lastChild.previousSibling);
+      if(chopped[1] != "undefined") {
+        shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = String(chopped[1]);
+        shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = String(chopped[2]);
+        if(chopped[1] == "equipped") {
+          equippingTime(shopTD[parseInt(chopped[0])].lastChild.previousSibling);
+        }
+        console.log("Added " + chopped[2] + " to location: " + chopped[0] + " with classname: " + chopped[1]);
+      } else {
+        shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = "locked";
+        shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = "Buy Me";
       }
     }
     console.log("Store Items Are Restored: " + saveDataIn);
