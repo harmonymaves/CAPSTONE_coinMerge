@@ -79,7 +79,7 @@ function checkCoins(td) {
         // if matching, alert "thanks for the correct change!"
         playSound("success");
         // alert("Thanks for the correct change!");
-        totalScore += totalValue;
+        totalScore += totalValue * 2;
         // that customer deletes and adds a new one
         customerRequest();
         clearCustomerBoxes();
