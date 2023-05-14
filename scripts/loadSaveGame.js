@@ -74,7 +74,7 @@ function saveShopItems() {
   var shopTD = document.querySelectorAll(".shopTD");
    shopTD.forEach(function(currentValue, currentIndex) { // For the shop
     // Sadly have to do long way to check class, text in shopTD counts as childern :(
-    if((currentValue.lastChild.previousSibling.firstChild.className != "locked" && currentValue.lastChild.previousSibling.firstChild.className!= "undefined") 
+    if((currentValue.lastChild.previousSibling.firstChild.className == "unlocked" || currentValue.lastChild.previousSibling.firstChild.className == "equipped") 
     && (currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equip Me" || currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equipped")) { // Something is there, save the data
       saveDataIn = saveDataIn.concat(String(currentIndex), ":");
       saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.className), ":");
@@ -104,10 +104,10 @@ function loadShopItems() {
           equippingTime(shopTD[parseInt(chopped[0])].lastChild.previousSibling);
         }
         console.log("Added " + chopped[2] + " to location: " + chopped[0] + " with classname: " + chopped[1]);
-      } else {
+      } else { // Data was corrupted, just reset it
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = "locked";
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = "Buy Me";
-        console.log("Undefineds should be fixed now");
+        console.log("Undefineds should be fixed now. Sorry!");
       }
     }
     console.log("Store Items Are Restored: " + saveDataIn);
