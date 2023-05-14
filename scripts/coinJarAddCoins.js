@@ -66,8 +66,13 @@ function populateEmptySpace() {
         coinToPlace.count = randomInt(1,2);
       }
 
-      imgToChange.src = `images/${coinToPlace.getImageName()}`;
-      imgToChange.className = "coin";
+      if(coinDecorActive != "no") {
+        imgToChange.src = `images/${coinDecorImagePath("image")}/${coinToPlace.getImageName()}`;
+        imgToChange.className = `coin ${coinDecorActive}`;
+      } else {
+        imgToChange.src = `images/${coinToPlace.getImageName()}`;
+        imgToChange.className = "coin";
+      }
       cellToChange.dataset.type = coinToPlace.type;
       cellToChange.dataset.count = coinToPlace.count;
     }

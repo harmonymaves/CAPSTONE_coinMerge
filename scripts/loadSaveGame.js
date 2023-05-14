@@ -10,6 +10,7 @@ const loadnSavePopUpClose = document.getElementById("loadnSavePopUp");
 const tdCoinSpace = document.querySelectorAll(".tdCoinSpace");
 //var scoreAreaLC = document.getElementById("scoreArea");
 var returningPlayer = false;
+var coinDecorActive = "no";
 
 /*
    Important Notice: Players who's devices don't support
@@ -73,7 +74,7 @@ function saveShopItems() {
   var shopTD = document.querySelectorAll(".shopTD");
    shopTD.forEach(function(currentValue, currentIndex) { // For the shop
     // Sadly have to do long way to check class, text in shopTD counts as childern :(
-    if((currentValue.lastChild.previousSibling.firstChild.className != "locked" && currentValue.lastChild.previousSibling.firstChild.className!= undefined) 
+    if((currentValue.lastChild.previousSibling.firstChild.className != "locked" && currentValue.lastChild.previousSibling.firstChild.className!= "undefined") 
     && (currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equip Me" || currentValue.lastChild.previousSibling.firstChild.innerHTML == "Equipped")) { // Something is there, save the data
       saveDataIn = saveDataIn.concat(String(currentIndex), ":");
       saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.className), ":");
@@ -133,7 +134,9 @@ function autoLoad() { // Add more calls when new data needs to be autoLoaded
     loadGame(tdCsCoinSpace, "custBoard"); // Load custboard data
     loadPoints(); // Load points data
     loadShopItems(); // Load unlocked items
-    document.body.setAttribute('style', 'visibility: visibile');
+    setTimeout(function() {
+      document.body.setAttribute('style', 'visibility: visibile');
+    }, 100)
 
   } // Else data will never load + no alert rn
 }
@@ -145,6 +148,14 @@ function autosave() { // Add more calls when new data needs to be autoSaved
     savePoints(); // Save points data
     saveShopItems(); // Save unlocked items
   } // Else data will never save + no alert rn
+}
+
+function coinDecorImagePath(cursorOrImage) {
+  if(cursorOrImage == "cursor") {
+    return `coinDecor/${coinDecorActive}/cursors`;
+  } else {
+    return `coinDecor/${coinDecorActive}`;
+  }
 }
 
 window.addEventListener("load", autoLoad);
