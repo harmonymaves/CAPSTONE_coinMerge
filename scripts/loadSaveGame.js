@@ -97,7 +97,7 @@ function loadShopItems() {
 
     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
       var chopped = saveDataIn[i].split(":");
-      if(chopped[1] != "undefined") {
+      if(chopped[2] != "undefined") {
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = String(chopped[1]);
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = String(chopped[2]);
         if(chopped[1] == "equipped") {
