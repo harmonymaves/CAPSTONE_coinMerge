@@ -40,17 +40,17 @@ function equippingTime(occurence) {
     case "color1":
       unequipMe("color2");
       unequipMe("color3");
-      equipColor("#a7c92b","#c78e3a");
+      equipColor("#ABCC84","#F8BC79");
     break;
     case "color2":
       unequipMe("color1");
       unequipMe("color3");
-      equipColor("#1c886f","#93ae30");
+      equipColor("#DB5760","#F7ED86");
     break;
     case "color3":
       unequipMe("color1");
       unequipMe("color2");
-      equipColor("#acae4c","#80519c");
+      equipColor("#AC83C9","#db91d7");
     break;
     case "coinJar1":
       unequipMe("coinJar2");
@@ -87,7 +87,7 @@ function revertToDefault(occurence) {
     case "color1":
     case "color2":
     case "color3":
-      equipColor("#f5f5dc", "#E58A00"); // Please update to new CSS default ***************
+      equipColor("#f5f5dc", "#000000"); // Please update to new CSS default ***************
     break;
     case "coinJar1":
     case "coinJar2":
