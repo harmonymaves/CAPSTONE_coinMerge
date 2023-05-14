@@ -82,7 +82,9 @@ body {
   background-color: #9ede7386;
   cursor: pointer;
 }
-
+.shopTR td {
+  font-size: 15px;
+}
 
 /******NEW STUFF******/
 
