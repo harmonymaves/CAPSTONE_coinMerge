@@ -93,12 +93,13 @@ function checkCoins(td) {
     if (totalValue == coinTotal) { //dev amount is 1.25
         // if matching, alert "thanks for the correct change!"
         playSound("success");
+        flareHighlight();
         // alert("Thanks for the correct change!");
         console.log("Updating totalScore from inside checkCoins;  Current Score: " + totalScore + " Adding the Customer Request Reward of: " + (totalValue * 2)); // Dev code remove
         console.log("New score shold be: " + (totalScore + (totalValue * 2))); // Dev code remove
         totalScore = (totalScore + (totalValue * 2));        
         // that customer deletes and adds a new one
-        customerRequest();
+
         clearCustomerBoxes();
         console.log("Updating score from Customer Coin Check");  // Dev code remove 
         updateScore(totalScore);

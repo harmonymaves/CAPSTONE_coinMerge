@@ -1,12 +1,50 @@
 body { 
-  background-color: #9FDF74;
+  background-color: #AC83c9;
+}
+#customerArea {
+  /* background-color: #BF0000; */
+  width: 207px;
+  height: auto;
+  text-align: center;
+}
+
+#customerWrapper {
+  /* border: 1px solid black; */
+  background-color: #9AC8EA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#customerImage{
+  width: 207px;
+  height: auto;
+  border: 1px solid black;
 }
 #scoreArea{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-  background-color: #F7EB00;
+  background-color: #f8f6cf;
   width: 207px;
   margin-top: 2px;
   margin-bottom: auto;
+}
+.tdCsCoinSpace {
+  background-color: black;
+  width: 65px;
+  height: 65px;
+  text-align: center;
 }
 .shopTR {
   background-color: rgb(174, 141, 103);
@@ -63,18 +101,22 @@ body {
   top: 5%;
   width: 90%;
   height: 95%; */
-  background-color: #659d42;
+  background-color: #5784b8;
+  border: 1px solid black;
 }
 #gameboardSpan {
-  background-color: #659d42;
+  background-color: #f4cfe0;
+  border: 1px solid black;
 }
 #welcomeSpan, #helpSectionSpan {
   inline-size: 350px;
   overflow-wrap: break-word;
-  background-color: #3d5f28;
+  background-color: #9AC8EA;
+  border: 1px solid black;
   padding: 10px;
 }
 #shopSpan {
-  background-color: #527c38;
+  background-color: #f4cfe0;
+  border: 1px solid black;
   padding-left: 2px;
 }

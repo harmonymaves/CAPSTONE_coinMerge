@@ -91,7 +91,7 @@ function customerRequest() {
   CoinPile3 = coinRequest();
   coinTotal += CoinPile3.getValue();
 
-  csReqest.innerText = "Hi! I need: \n" +  "$" + (coinTotal / 100).toFixed(2) + "\n in change please!";
+  csReqest.innerText = "Hi! I need " + "$" + (coinTotal / 100).toFixed(2) + " please!";
 
   customerImage();  
 }

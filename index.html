@@ -57,18 +57,19 @@
         <div id="customerArea"><img id="customerImage" src="images/devCustomer.png" alt="This is a placeholder image that will hold images of customers">
           <div id="customerRequest">
           </div>
+          <div id="scoreWrapper">
+            <p id="scoreArea">0</h3>
+          </div>
+          <div id ="customerCoinBoard">    
+          <table id="customerCoinPile">
+            <tr class="customerRow">
+              <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile1"></div></td>
+              <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile2"></div></td>
+              <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile3"></div></td>
+            </tr>
+          </table>
         </div>
-        <div class="scoreWrapper">
-          <p id="scoreArea">0</h3>
-        </div>
-        <div id ="customerCoinBoard">    
-        <table id="customerCoinPile">
-          <tr class="customerRow">
-            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile1"></div></td>
-            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile2"></div></td>
-            <td class="tdCsCoinSpace noColor"><img class="noCoin" src="" alt="" draggable="false"><div id="customerCoinPile3"></div></td>
-          </tr>
-        </table>
+
         </div>
       </div>
       <!--CoinBoard Section-->  
@@ -111,8 +112,12 @@
           </tr>
         </table>
 
-        <button id="resetBtn">Reset Coins</button>
-        <img src="images/coinJar.png" alt="Add Change" id="coinBtn" class="defaultJar">
+        <div class="imageWrapper">
+          <img src="images/coinJar.png" alt="Add Change" id="coinBtn" class="defaultJar">
+        </div>
+        <div class="buttonWrapper">
+          <button id="resetBtn">Reset Coins</button>
+        </div>
       </div>
     </div> <!--Help Section-->
     <span id="helpSectionSpan">
@@ -146,7 +151,7 @@
   <script src="scripts/resetButton.js"></script>
   <script src="scripts/customer.js"></script>
   <script src="scripts/custCoinCheck.js"></script>
-  
+  <script src="scripts/customerAnimations.js"></script>  
   <script src="scripts/shopControl.js"></script>
   <script src="scripts/playSound.js"></script>
 </body>
