@@ -94,7 +94,9 @@ function checkCoins(td) {
         // if matching, alert "thanks for the correct change!"
         playSound("success");
         // alert("Thanks for the correct change!");
-        totalScore += totalValue * 2;
+        console.log("Updating totalScore from inside checkCoins;  Current Score: " + totalScore + " Adding the Customer Request Reward of: " + (totalValue * 2)); // Dev code remove
+        console.log("New score shold be: " + (totalScore + (totalValue * 2))); // Dev code remove
+        totalScore = (totalScore + (totalValue * 2));        
         // that customer deletes and adds a new one
         customerRequest();
         clearCustomerBoxes();
