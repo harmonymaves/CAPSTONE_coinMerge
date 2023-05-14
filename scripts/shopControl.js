@@ -67,6 +67,15 @@ function equippingTime(occurence) {
       unequipMe("coinJar2");
       equipCoinJar(EquippedMe);
     break;
+    case "coinDecor1":
+      equipCoinDecor("coinDecor1");
+      //unequipMe("coinDecor2");
+    break;
+    /*Coming soon
+    case "coinDecor2":
+      unequipMe("coinDecor1");
+    break;
+    */
     default:
       alert("Error Equiping");
   }
@@ -85,6 +94,10 @@ function revertToDefault(occurence) {
     case "coinJar3":
       equipCoinJar("coinJar"); // Default image
     break;
+    case "coinDecor1":
+    case "coinDecor2":
+      unequipCoinDecor();
+    break;
     default:
       alert("Error Reverting to default");
   }
@@ -100,12 +113,46 @@ function equipColor(color1, color2) { // String, String
 function equipCoinJar(imageName) { // String
   document.getElementById("coinBtn").setAttribute("src", "images/" + String(imageName) + ".png");
 }
+function equipCoinDecor(coinDecor) {
+  coinDecorActive = String(coinDecor);
+  callingAllCoins(document.querySelectorAll(".tdCsCoinSpace"), coinDecor);
+  callingAllCoins(document.querySelectorAll(".tdCoinSpace"), coinDecor);
+}
 function unequipMe(color) {
   let unequip = document.getElementById(color).lastChild.previousSibling.firstChild.className;
   if(unequip == "equipped") {
     document.getElementById(color).lastChild.previousSibling.firstChild.className = "unlocked";
     document.getElementById(color).lastChild.previousSibling.firstChild.innerHTML = "Equip Me";
   }
+}
+function unequipCoinDecor() {
+  coinDecorActive = "no";
+  defaultCoinClass(document.querySelectorAll(".tdCsCoinSpace"));
+  defaultCoinClass(document.querySelectorAll(".tdCoinSpace"));
+}
+function callingAllCoins(tdLocation, coinDecor) {
+  tdLocation.forEach(function(currentValue) {
+    if(currentValue.firstChild.className != "noCoin") { // Something is there, change it
+      currentValue.firstChild.className == `coin ${coinDecor}`;
+      if(currentValue.dataset.type == "dollar") {
+        currentValue.firstChild.src = `images/${coinDecorImagePath("image")}/dollar.png`;
+      } else {
+        currentValue.firstChild.src = `images/${coinDecorImagePath("image")}/${currentValue.dataset.type + currentValue.dataset.count}.png`;
+      }
+    }
+  });
+}
+function defaultCoinClass(tdLocation) {
+  tdLocation.forEach(function(currentValue) {
+    if(currentValue.firstChild.className != "noCoin") { // Something is there, change it
+      currentValue.firstChild.className == "coin";
+      if(currentValue.dataset.type == "dollar") {
+        currentValue.firstChild.src = `images/dollar.png`;
+      } else {
+        currentValue.firstChild.src = `images/${currentValue.dataset.type + currentValue.dataset.count}.png`;
+      }
+    }
+  });
 }
 
 // document.querySelectorAll(".defaultShop").forEach(occurence => { // function to grab all shop items

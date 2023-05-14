@@ -15,15 +15,25 @@ function coinToCustomer(td) {
             img.className = "noCoin"; // pulls coin from view while in heldCoin
 
             // adds custom cursor to represent dragging coin
-            coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
-            customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            if(coinDecorActive != "no") {
+                coinBoard.style = `cursor: url(images/${coinDecorImagePath("cursor")}/${heldCoin.getImageName()}), auto;`;
+                customerCoins.style = `cursor: url(images/${coinDecorImagePath("cursor")}/${heldCoin.getImageName()}), auto;`;
+            } else {
+                coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+                customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            }
         } else {
             // make a CoinPile instance using the td clicked
             clickedCoin = new CoinPile(td.dataset.type, td.dataset.count);
 
             playSound("deny");
             // don't even check for a merge, just put it back where it came from
-            heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+            if(coinDecorActive != "no") {
+                heldCoinTd.firstChild.className = `coin ${coinDecorActive}`; // reset CSS of heldCoin's td's img, putting it back
+            } else {
+                heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+            }
+            
             console.log("Merge failure...");
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
             customerCoins.style = `cursor: auto;`;
@@ -35,8 +45,13 @@ function coinToCustomer(td) {
         if (heldCoin != null) { // we are holding a coin
 
             // place coin, update image, className, and src, then update td count and type
-            img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
-            img.className = 'coin'; // update img tag to show image again
+            if(coinDecorActive != "no") {
+                img.src = `images/${coinDecorImagePath("Image")}/${heldCoin.getImageName()}`; // change image tag src to be held coin image
+                img.className = `coin ${coinDecorActive}`; // update img tag to show image again
+            } else {
+                img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
+                img.className = 'coin'; // update img tag to show image again
+            }
 
             heldCoinTd.dataset.type = ""; // Bug fix: clear the data from the original td.
             heldCoinTd.dataset.count = 0;

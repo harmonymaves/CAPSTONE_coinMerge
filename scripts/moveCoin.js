@@ -19,8 +19,13 @@ function coinClicked(td) {
             img.className = "noCoin"; // pulls coin from view while in heldCoin
 
             // adds custom cursor to represent dragging coin
-            coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
-            customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            if (coinDecorActive != "no") {
+                coinBoard.style = `cursor: url(images/${coinDecorImagePath("cursor")}/${heldCoin.getImageName()}), auto;`;
+                customerCoins.style = `cursor: url(images/${coinDecorImagePath("cursor")}/${heldCoin.getImageName()}), auto;`;
+            } else {
+                coinBoard.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+                customerCoins.style = `cursor: url(images/cursors/${heldCoin.getImageName()}), auto;`;
+            }
         } else { //already have a coin in heldCoin
             // Coin in grid space and held, so attempt a merge
 
@@ -38,7 +43,11 @@ function coinClicked(td) {
             if (clickedCoin.merge(heldCoin)) { // success
                 var totalScore = parseInt(document.getElementById("scoreArea").textContent);
                 console.log("Total Score is currently: " + document.getElementById("scoreArea").textContent);
-                img.src = `images/${clickedCoin.getImageName()}`; // update image
+                if(coinDecorActive != "no") {
+                    img.src = `images/${coinDecorImagePath("image")}/${clickedCoin.getImageName()}`; // update image
+                } else {
+                    img.src = `images/${clickedCoin.getImageName()}`; // update image
+                }
                 td.dataset.type = clickedCoin.type; // update td's data
                 td.dataset.count= clickedCoin.count;
                 heldCoinTd.dataset.type = ""; // actually remove the data from the held coin's original td
@@ -48,7 +57,11 @@ function coinClicked(td) {
                 console.log("Total Score has been updated to: " + document.getElementById("scoreArea").textContent);  
                 console.log("MERGE SUCCESS!"); // TODO: REMOVE FROM PRODUCTION
             } else { // failure
-                heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+                if(coinDecorActive != "no") {
+                    heldCoinTd.firstChild.className = `coin ${coinDecorActive}`; // reset CSS of heldCoin's td's img, putting it back
+                } else {
+                    heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
+                }
                 console.log("Merge failure...");
                 playSound("deny");
             }
@@ -63,8 +76,13 @@ function coinClicked(td) {
         if (heldCoin != null) { // we are holding a coin
             
             // place coin, update image, className, and src, then update td count and type
-            img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
-            img.className = 'coin'; // update img tag to show image again
+            if(coinDecorActive != "no") {
+                img.src = `images/${coinDecorImagePath("image")}/${heldCoin.getImageName()}`; // change image tag src to be held coin image
+                img.className = `coin ${coinDecorActive}`; // update img tag to show image again
+            } else {
+                img.src = `images/${heldCoin.getImageName()}`; // change image tag src to be held coin image
+                img.className = 'coin'; // update img tag to show image again
+            }
 
             heldCoinTd.dataset.type = ""; // Bug fix: clear the data from the original td.
             heldCoinTd.dataset.count = 0;
