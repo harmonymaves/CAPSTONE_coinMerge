@@ -13,6 +13,7 @@ document.querySelectorAll(".shopbtn").forEach(occurence => { // function to grab
       if (status == "locked") {
         if(points <= currentScore) {
           document.getElementById("scoreArea").innerHTML = (currentScore - points);
+          totalScore = (currentScore - points);
           occurence.firstChild.className = "unlocked";
           occurence.firstChild.innerHTML = "Equip Me";
           //occurence.previousSibling.setAttribute("src", "images/unlock.png");
