@@ -1,15 +1,3 @@
-const sounds = [
-  "audio/mixkit-bag-of-coins-touch-3187.wav",
-  "audio/mixkit-clinking-coins-1993.wav",
-  "audio/mixkit-coins-handling-1939.wav",
-  "audio/mixkit-fairy-arcade-sparkle-866.wav",
-  "audio/mixkit-game-coin-touch-3217.wav",
-  "audio/mixkit-gold-coin-prize-1999.wav",
-  "audio/mixkit-melodic-gold-price-2000.wav",
-  "audio/mixkit-money-bag-drop-1989.wav",
-  "audio/mixkit-system-beep-buzzer-fail-2964.wav"
-];
-
 const images = [
   "images/dime1.png",
   "images/dime2.png",
@@ -38,10 +26,6 @@ const images = [
   "images/cursors/quarter2.png",
   "images/cursors/quarter3.png"
 ];
-
-sounds.forEach(sound => {
-  newSound = new Audio(sound);  
-});
 
 images.forEach(image => {
   newImage = new Image();
