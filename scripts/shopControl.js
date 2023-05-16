@@ -7,7 +7,7 @@ document.querySelectorAll(".shopbtn").forEach(occurence => { // function to grab
     var currentScore = parseInt(document.getElementById("scoreArea").textContent);
     let status = occurence.firstChild.className;
     let points = parseInt(occurence.parentNode.textContent.slice(8));
-    if (occurence.parentNode.id == "comingSoon") {
+    if (occurence.parentNode.id == "comingSoon") { // saving incase working on in future wants to publish midway
       alert("Sorry, item is not ready for purchase");
     } else {
       if (status == "locked") {
