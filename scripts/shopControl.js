@@ -41,17 +41,17 @@ function equippingTime(occurence) {
     case "color1":
       unequipMe("color2");
       unequipMe("color3");
-      equipColor("#ABCC84","#F8BC79");
+      equipColor("#F5926B","#C99AEC","#9FE4AD","#F9ABF5","#5BC5F5");
     break;
     case "color2":
       unequipMe("color1");
       unequipMe("color3");
-      equipColor("#DB5760","#F7ED86");
+      equipColor("#DB5760","#F9AD46","#A2D073","#A4DFE7","#F7ED86");
     break;
     case "color3":
       unequipMe("color1");
       unequipMe("color2");
-      equipColor("#AC83C9","#db91d7");
+      equipColor("#ABCC84","#F8BC79","#F7ED86","#EDCDE2","#A4DEF7");
     break;
     case "coinJar1":
       unequipMe("coinJar2");
@@ -88,7 +88,7 @@ function revertToDefault(occurence) {
     case "color1":
     case "color2":
     case "color3":
-      equipColor("#f5f5dc", "#000000"); // Please update to new CSS default ***************
+      equipColor("#000000", "#5784b8", "#9AC8EA", "#f4cfe0", "#f5f5dc"); // Please update to new CSS default ***************
     break;
     case "coinJar1":
     case "coinJar2":
@@ -103,12 +103,18 @@ function revertToDefault(occurence) {
       alert("Error Reverting to default");
   }
 }
-function equipColor(color1, color2) { // String, String
-  tdCoinSpace.forEach(function(currentValue) {
+function equipColor(color1, color2, color3, color4, color5) { // String, String
+  document.querySelectorAll(".tdCsCoinSpace").forEach(function(currentValue) {
     currentValue.style.backgroundColor = String(color1);
   });
-  document.querySelectorAll(".tdCsCoinSpace").forEach(function(currentValue) {
-    currentValue.style.backgroundColor = String(color2);
+  document.getElementById("entireBoard").style.backgroundColor = String(color2);
+  document.getElementById("welcomeSpan").style.backgroundColor = String(color3);
+  document.getElementById("helpSectionSpan").style.backgroundColor = String(color3);
+  document.getElementById("customerWrapper").style.backgroundColor = String(color3);
+  document.getElementById("gameboardSpan").style.backgroundColor = String(color3);
+  document.getElementById("shopSpan").style.backgroundColor = String(color4);
+  document.querySelectorAll(".tdCoinSpace").forEach(function(currentValue) {
+    currentValue.style.backgroundColor = String(color5);
   });
 }
 function equipCoinJar(imageName) { // String
