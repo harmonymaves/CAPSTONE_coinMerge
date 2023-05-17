@@ -60,8 +60,7 @@ function loadPoints() {
     document.getElementById("scoreArea").innerHTML = parseInt(localStorage.getItem("points"));
     totalScore = parseInt(localStorage.getItem("points"));
     updateScore(totalScore);
-  }
-  if(localStorage.getItem("points") == "NaN") {
+  } else {
     document.getElementById("scoreArea").innerHTML = 0;
     totalScore = 0;
     updateScore(totalScore);
