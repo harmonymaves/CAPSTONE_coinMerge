@@ -31,7 +31,6 @@ function saveGame(tdLocation, localStorageName) { // String, Nodelist, String
       saveDataIn = saveDataIn.concat(String(currentIndex), ",", currentValue.getAttribute('data-type'), ",", currentValue.getAttribute('data-count'), ",");
     }
   });
-  console.log("DataTables Saved: " + saveDataIn.split(",")); // View of what was added
   localStorage.setItem(localStorageName, saveDataIn);
   returningPlayer = true; // They are a returning player (stops auto coins from spawning)
 }
@@ -48,7 +47,6 @@ function loadGame(tdLocation, localstrName) { // String, Nodelist
         var addingCoin = new CoinPile(type, count); // Make the coin apart of the CoinPile class
         tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
         tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
-        console.log(addingCoin.toString()); //See what loaded
         i += 2;
       }
       returningPlayer = true; // They are a returning player (stops auto coins from spawning)
@@ -79,11 +77,9 @@ function saveShopItems() {
       saveDataIn = saveDataIn.concat(String(currentIndex), ":");
       saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.className), ":");
       saveDataIn = saveDataIn.concat(String(currentValue.lastChild.previousSibling.firstChild.innerHTML), ",");
-      console.log("Shop Items Saved: " + saveDataIn.split(","));
     }
   });
   if(saveDataIn != "") {
-    console.log("Shop Items Saved: " + saveDataIn.split(",")); // View of what was added
     localStorage.setItem("shopItems", saveDataIn);
   }
 }
@@ -103,30 +99,12 @@ function loadShopItems() {
         if(chopped[1] == "equipped") {
           equippingTime(shopTD[parseInt(chopped[0])].lastChild.previousSibling);
         }
-        console.log("Added " + chopped[2] + " to location: " + chopped[0] + " with classname: " + chopped[1]);
       } else { // Data was corrupted, just reset it
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.className = "locked";
         shopTD[parseInt(chopped[0])].lastChild.previousSibling.firstChild.innerHTML = "Buy Me";
-        console.log("Undefineds should be fixed now. Sorry!");
       }
     }
-    console.log("Store Items Are Restored: " + saveDataIn);
   }
-  // if (localStorage.getItem(localstrName) != null && localStorage.getItem(localstrName) != "") { // Exists, so load
-  //   var saveDataIn = localStorage.getItem(localstrName);
-  //   saveDataIn = saveDataIn.substring(0, saveDataIn.length-1);
-  //   saveDataIn = saveDataIn.split(",");
-
-  //     for(let i = 0; i < saveDataIn.length; i++) { // Loops through all gathered data
-  //       let type = tdLocation[parseInt(saveDataIn[i])].dataset.type = saveDataIn[i+1]; // Set type
-  //       let count = tdLocation[parseInt(saveDataIn[i])].dataset.count = saveDataIn[i+2]; // Set count
-  //       var addingCoin = new CoinPile(type, count); // Make the coin apart of the CoinPile class
-  //       tdLocation[parseInt(saveDataIn[i])].firstChild.setAttribute("src", "images/" + addingCoin.getImageName()); // Autogen it's image
-  //       tdLocation[parseInt(saveDataIn[i])].firstChild.className = "coin"; // Fixing the img class to update css
-  //       console.log(addingCoin.toString()); //See what loaded
-  //       i += 2;
-  //     }
-  //   }
 }
 
 function autoLoad() { // Add more calls when new data needs to be autoLoaded

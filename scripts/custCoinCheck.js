@@ -4,7 +4,6 @@ function coinToCustomer(td) {
     let img = td.firstChild; //grab the image tag within the board square that was clicked
 
     if (img.className != "noCoin") { //space holds a coin
-        printCoinProperties(td); // for debug, TODO: remove for production
         if (heldCoin == null) { // no coin in heldCoin
 
             // save the coin clicked on into a var, as well as td in case coin needs to be
@@ -34,7 +33,6 @@ function coinToCustomer(td) {
                 heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
             }
             
-            console.log("Merge failure...");
             coinBoard.style = `cursor: auto;`; //turns the cursor back into pointer
             customerCoins.style = `cursor: auto;`;
             heldCoin = null; // resets var to not holding a coin
@@ -95,13 +93,10 @@ function checkCoins(td) {
         playSound("success");
         flareHighlight();
         // alert("Thanks for the correct change!");
-        console.log("Updating totalScore from inside checkCoins;  Current Score: " + totalScore + " Adding the Customer Request Reward of: " + (totalValue * 2)); // Dev code remove
-        console.log("New score shold be: " + (totalScore + (totalValue * 2))); // Dev code remove
         totalScore = (totalScore + (totalValue * 2));        
         // that customer deletes and adds a new one
 
         clearCustomerBoxes();
-        console.log("Updating score from Customer Coin Check");  // Dev code remove 
         updateScore(totalScore);
     }
 } 

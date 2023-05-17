@@ -21,15 +21,10 @@ function calculateScore (totalScore, CoinPile) {
         break;
     }
   newScore = totalScore + mergeValue;
-  console.log("We are trying to update the score from inside the calculate score function!"); // Dev code remove 
-  console.log(newScore); // Dev code remove 
   updateScore(newScore);
   return newScore;
 }
 
 function updateScore(x) {
-  console.log("We are trying to update the score from inside the Update Score function!"); // Dev code remove 
-  scoreArea.innerText = x; 
-  console.log(scoreArea.innerText); // Dev code remove 
-  console.log(x); // Dev code remove 
+  scoreArea.innerText = x;
 }

@@ -1,7 +1,3 @@
-/* TODO:
-Please update ********** comments to match
-the new CSS themes, thanks!
-*/
 document.querySelectorAll(".shopbtn").forEach(occurence => { // function to grab all shop items
   occurence.addEventListener('click', function(){ // Activates click for specific button
     var currentScore = parseInt(document.getElementById("scoreArea").textContent);
@@ -16,26 +12,20 @@ document.querySelectorAll(".shopbtn").forEach(occurence => { // function to grab
           totalScore = (currentScore - points);
           occurence.firstChild.className = "unlocked";
           occurence.firstChild.innerHTML = "Equip Me";
-          //occurence.previousSibling.setAttribute("src", "images/unlock.png");
         } else {
           alert("Purchase Failed: Not enough points");
-          console.log("Purchase Failed: Points = " + currentScore);
         }
       } else if(status == "unlocked") {
-        // TODO: Unequip = easy
         equippingTime(occurence);
         occurence.firstChild.innerHTML = "Equipped";
         occurence.firstChild.className = "equipped";
       } else if(status == "equipped") {
-        //console.log("This item is labeled as equipped");
-        // TODO: Revert to default
         revertToDefault(occurence);
       } // Else it's messed up so don't do anything
     }
   });
 });
 function equippingTime(occurence) {
-  console.log("The occurence is: " + occurence);
   EquippedMe = String(occurence.parentNode.id)
   switch(EquippedMe) {
     case "color1":
@@ -161,16 +151,3 @@ function defaultCoinClass(tdLocation) {
     }
   });
 }
-
-// document.querySelectorAll(".defaultShop").forEach(occurence => { // function to grab all shop items
-//   occurence.addEventListener('click', function(){
-//     // TODO: Added Coin Decor in checker
-//     console.log("Occurences: " + occurence);
-//     console.log("Occurence Id:" + occurence.id + "\nThe defaultBG is: " + tdCoinSpace[0].style.backgroundColor + "\nThe defaultCJ is: " + document.getElementById("coinBtn").getAttribute("src"));
-//     if ((occurence.id == "defaultBG" && tdCoinSpace[0].style.backgroundColor != "#f5f5dc") || 
-//     (occurence.id == "defaultCJ" && document.getElementById("coinBtn").getAttribute("src") != "images/coinJar.png")) { // Please update to new CSS default ***************
-//       console.log("Random Child is: " + occurence.parentNode.nextSibling.lastChild);
-//       revertToDefault(occurence.parentNode.nextSibling.lastChild); // Grab some random child in one td to grab same parentid
-//     }
-//   });
-// });

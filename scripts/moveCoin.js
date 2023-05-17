@@ -8,7 +8,6 @@ function coinClicked(td) {
     let img = td.firstChild; //grab the image tag within the board square that was clicked
 
     if (img.className != "noCoin") { //space holds a coin
-        printCoinProperties(td); // for debug, TODO: remove for production
         if (heldCoin == null) { // no coin in heldCoin
 
             // save the coin clicked on into a var, as well as td in case coin needs to be
@@ -28,8 +27,6 @@ function coinClicked(td) {
             }
         } else { //already have a coin in heldCoin
             // Coin in grid space and held, so attempt a merge
-
-            console.log('merge entered');
             
             // make a CoinPile instance using the td clicked
             clickedCoin = new CoinPile(td.dataset.type, td.dataset.count);
@@ -42,7 +39,6 @@ function coinClicked(td) {
             // success or failure of the merge
             if (clickedCoin.merge(heldCoin)) { // success
                 var totalScore = parseInt(document.getElementById("scoreArea").textContent);
-                console.log("Total Score is currently: " + document.getElementById("scoreArea").textContent);
                 if(coinDecorActive != "no") {
                     img.src = `images/${coinDecorImagePath("image")}/${clickedCoin.getImageName()}`; // update image
                 } else {
@@ -52,17 +48,13 @@ function coinClicked(td) {
                 td.dataset.count= clickedCoin.count;
                 heldCoinTd.dataset.type = ""; // actually remove the data from the held coin's original td
                 heldCoinTd.dataset.count = 0;
-                console.log("Updating score from Merge");   // Dev code remove 
-                totalScore = calculateScore(totalScore, clickedCoin); // Update and dispaly the score 
-                console.log("Total Score has been updated to: " + document.getElementById("scoreArea").textContent);  
-                console.log("MERGE SUCCESS!"); // TODO: REMOVE FROM PRODUCTION
+                totalScore = calculateScore(totalScore, clickedCoin); // Update and dispaly the score
             } else { // failure
                 if(coinDecorActive != "no") {
                     heldCoinTd.firstChild.className = `coin ${coinDecorActive}`; // reset CSS of heldCoin's td's img, putting it back
                 } else {
                     heldCoinTd.firstChild.className = "coin"; // reset CSS of heldCoin's td's img, putting it back
                 }
-                console.log("Merge failure...");
                 playSound("deny");
             }
 
