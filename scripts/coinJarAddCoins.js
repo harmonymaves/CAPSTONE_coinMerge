@@ -73,8 +73,6 @@ function populateEmptySpace() {
       cellToChange.dataset.count = coinToPlace.count;
     }
     playSound("jarSpawn");
-  } else {
-    alert("No more room for coins!");
   } // end if emptyCells is > 0
 
 } // end populateEmptySpace function

@@ -89,10 +89,8 @@ function checkCoins(td) {
     
     // and check against requested amount
     if (totalValue == coinTotal) { //dev amount is 1.25
-        // if matching, alert "thanks for the correct change!"
         playSound("success");
         flareHighlight();
-        // alert("Thanks for the correct change!");
         totalScore = (totalScore + (totalValue * 2));        
         // that customer deletes and adds a new one
 
